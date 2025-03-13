@@ -6,6 +6,7 @@ import io.cucumber.java.en.When;
 import pages.DialogContent;
 
 public class CurrencySelection {
+
     DialogContent dc = new DialogContent();
 
     @When("The user displays the currency section located at the top-right corner of the booking page")

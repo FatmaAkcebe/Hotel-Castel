@@ -7,6 +7,7 @@ import io.cucumber.java.en.When;
 import pages.DialogContent;
 
 public class CheckHotelInformation {
+
     DialogContent dc = new DialogContent();
 
     @Given("The user is on to the Hotel Castle homepage")
