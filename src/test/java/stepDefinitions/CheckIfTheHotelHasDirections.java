@@ -12,6 +12,7 @@ public class CheckIfTheHotelHasDirections {
     @Given("Navigate to hootelCastle")
     public void navigateToHootelCastle() {
         GWD.getDriver().get("https://hotel-castle-rastatt.de/");
+        dc.myClick(dc.almanca);
         dc.myClick(dc.anfahrt);
     }
 
