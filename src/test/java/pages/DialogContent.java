@@ -71,5 +71,13 @@ public class DialogContent extends ReusableMethods {
     @FindBy(xpath = "//p[contains(text(),'(inkl. 1 Erwachsene und 0 Kinder)')]")
     public List<WebElement>erwachseneUndKinderText;
 
+    @FindBy(xpath = "(//a[@class='wpml-ls-link'])[5]")
+    public WebElement deutschBtn;
+
+    @FindBy(css = "[class='hotel_name ']")
+    public WebElement bookNowControl;
+
+    @FindBy(xpath = "(//a[@class='wpml-ls-link'])[6]")
+    public WebElement englischBtn;
 
 }
