@@ -59,12 +59,17 @@ public class DialogContent extends ReusableMethods {
     @FindBy(xpath = "//div//li[@class='menu-right']//a[@class='wpml-ls-link']/img[@alt='Deutsch']")
     public WebElement almanca;
 
-    @FindBy(xpath = "(//a[@class='wpml-ls-link'])[5]")
-    public WebElement deutschBtn;
+    @FindBy(linkText = "Details anzeigen")
+    public WebElement detailsAnzeigenLink;
 
-    @FindBy(css = "[class='hotel_name ']")
-    public WebElement bookNowControl;
+    @FindBy(linkText = "Details ausblenden")
+    public WebElement detailsAusbledenLinks;
 
-    @FindBy(xpath = "(//a[@class='wpml-ls-link'])[6]")
-    public WebElement englischBtn;
+    @FindBy(xpath = "//h4[text()='Standard Rate']")
+    public WebElement standardRateText;
+
+    @FindBy(xpath = "//p[contains(text(),'(inkl. 1 Erwachsene und 0 Kinder)')]")
+    public List<WebElement>erwachseneUndKinderText;
+
+
 }
