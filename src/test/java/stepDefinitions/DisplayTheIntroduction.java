@@ -1,11 +1,9 @@
 package stepDefinitions;
 
-import io.cucumber.java.en.And;
-import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
+import io.cucumber.java.en.*;
 
 public class DisplayTheIntroduction {
-    @When("The user scroll down to the introduction section")
+    @When("The user scrolls down to the introduction section")
     public void theUserScrollDownToTheIntroduction() {
     }
 
