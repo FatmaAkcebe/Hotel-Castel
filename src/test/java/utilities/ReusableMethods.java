@@ -1,8 +1,6 @@
 package utilities;
 
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -121,6 +119,20 @@ public class ReusableMethods {
             Thread.sleep(sn * 1000L);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
+        }
+    }
+
+    public void closeWindow() {
+        try {
+            Robot robot = new Robot();
+
+            robot.keyPress(KeyEvent.VK_ALT);
+            robot.keyPress(KeyEvent.VK_F4);
+
+            robot.keyRelease(KeyEvent.VK_F4);
+            robot.keyRelease(KeyEvent.VK_ALT);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }
