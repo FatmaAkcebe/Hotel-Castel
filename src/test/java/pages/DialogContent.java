@@ -97,4 +97,25 @@ public class DialogContent extends ReusableMethods {
 
     @FindBy(css = ".thim-sc-categories-link a.categories-link[href$='aktivitaeten']")
     public WebElement midSectionAktivitaten;
+
+    @FindBy(css = ".wpb_wrapper img[alt='hotelrastattanfahrt-min (1)']")
+    public WebElement anfahrtImg;
+
+    @FindBy(css = ".wpb_wrapper img[alt='hotelrastattüberuns-min (1)']")
+    public WebElement uberUnsImg;
+
+    @FindBy(css = ".wpb_wrapper img[alt='rastatt hotel schloss']")
+    public WebElement aktivitatenImg;
+
+    @FindBy(css = "div[class='vc_row wpb_row vc_row-fluid no-fill-sm category-group vc_row-no-padding']")
+    public WebElement homepageMiddleSection;
+
+    @FindBy(css = "div.wpb_wrapper h3.heading_secondary")
+    public WebElement anfahrtPageContent;
+
+    @FindBy(css = "div.wpb_wrapper h3.heading_secondary")
+    public WebElement uberUnsPageContent;
+
+    @FindBy(css = "div.wpb_wrapper h3.heading_secondary")
+    public WebElement activitatenPageContent;
 }
