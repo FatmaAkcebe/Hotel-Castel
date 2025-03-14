@@ -118,4 +118,72 @@ public class DialogContent extends ReusableMethods {
 
     @FindBy(css = "div.wpb_wrapper h3.heading_secondary")
     public WebElement activitatenPageContent;
+
+    @FindBy(css = "[class='logo']")
+    public WebElement logo;
+
+    @FindBy(xpath = "(//*[text()='Start'])[3]")
+    public WebElement startButton;
+
+    @FindBy(xpath = "(//*[text()='Über uns'])[3]")
+    public WebElement uberUnsButton;
+
+    @FindBy(xpath = "(//*[text()='Anfahrt'])[3]")
+    public WebElement anfahrtButton;
+
+    @FindBy(xpath = "(//*[text()='Aktivitäten'])[3]")
+    public WebElement aktivitätenButton;
+
+    @FindBy(id = "masthead")
+    public WebElement headerMenu;
+
+    @FindBy(xpath = "(//*[@class='value'])[3]")
+    public WebElement headerPhoneNumber;
+
+    @FindBy(xpath = "//*[text()='Impressum']")
+    public WebElement impressumButton;
+
+    @FindBy(xpath = "//*[text()='Datenschutz']")
+    public WebElement datenschutzButton;
+
+    @FindBy(css = "[class='scrolldown']")
+    public WebElement goUpButton;
+
+    @FindBy(xpath = "//*[text()='OK']")
+    public WebElement okButton;
+
+    @FindBy(css = "[class='footer ']")
+    public WebElement footerMenu;
+
+    @FindBy(xpath = "//*[text()='07222 1590750']")
+    public WebElement footerPhoneNumber;
+
+    @FindBy(xpath = "(//*[@class='info'])[2]")
+    public WebElement emailAddress ;
+
+    public WebElement getWebElement(String menuItem) {
+        switch (menuItem.toLowerCase()) {
+            case "logo":
+                return this.logo;
+            case "start":
+                return this.startButton;
+            case "über uns":
+                return this.uberUnsButton;
+            case "anfahrt":
+                return this.anfahrtButton;
+            case "aktivitäten":
+                return this.aktivitätenButton;
+            case "header phone number":
+                return this.headerPhoneNumber;
+            case "footer phone number":
+                return this.footerPhoneNumber;
+            case "email address":
+                return this.emailAddress;
+            case "impressum":
+                return this.impressumButton;
+            case "datenschutz":
+                return this.datenschutzButton;
+        }
+        return null;
+    }
 }
