@@ -88,4 +88,13 @@ public class DialogContent extends ReusableMethods {
 
     @FindBy(xpath = "((//div[@class='vc_row wpb_row vc_row-fluid'])[2]//p)[1]")
     public WebElement introTextContent;
+
+    @FindBy(css = ".thim-sc-categories-link a.categories-link[href$='anfahrt']")
+    public WebElement midSectionAnfahrt;
+
+    @FindBy(css = ".thim-sc-categories-link a.categories-link[href$='ueber-uns']")
+    public WebElement midSectionUberUns;
+
+    @FindBy(css = ".thim-sc-categories-link a.categories-link[href$='aktivitaeten']")
+    public WebElement midSectionAktivitaten;
 }
