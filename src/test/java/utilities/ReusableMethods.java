@@ -123,9 +123,4 @@ public class ReusableMethods {
             throw new RuntimeException(e);
         }
     }
-
-    public void drapAndDrop(WebElement element1, WebElement element2){
-        Actions actions = new Actions(GWD.getDriver());
-        actions.dragAndDrop(element1,element2).build().perform();
-    }
 }

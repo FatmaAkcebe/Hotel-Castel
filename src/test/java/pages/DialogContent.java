@@ -53,51 +53,10 @@ public class DialogContent extends ReusableMethods {
     @FindBy(css = "p[class='selected_rooms_price']")
     public WebElement totalPrice;
 
-    @FindBy(xpath = "(//ul[@id='primary-menu']//a[text()='Location'])[2]")
+    @FindBy(xpath = "(//ul[@id='primary-menu']//a[text()='Anfahrt'])[2]")
     public WebElement anfahrt;
 
     @FindBy(xpath = "//div//li[@class='menu-right']//a[@class='wpml-ls-link']/img[@alt='Deutsch']")
     public WebElement almanca;
 
-    @FindBy(xpath = "(//div[@class='wpb_wrapper'])[1]")
-    public WebElement text;
-
-    @FindBy(xpath = "//div[@style='position: absolute; left: 0px; top: 0px; width: 256px; height: 256px;']")
-    public WebElement map;
-
-    @FindBy(xpath = "//button[@aria-label='Sokak haritasını göster']")
-    public WebElement mapName;
-
-    @FindBy(xpath = "//button[@aria-label='Tam ekran görünümü açma/kapama']")
-    public WebElement fullScreen;
-
-    @FindBy(xpath = "//button[@draggable='false' and @aria-label='Harita kamerası kontrolleri']")
-    public WebElement controlKey;
-
-    @FindBy(xpath = "//button[@draggable='false' and @aria-label='Yukarı taşı']")
-    public WebElement upKey;
-
-    @FindBy(xpath = "//button[@draggable='false' and @aria-label='Sola taşı']")
-    public WebElement leftKey;
-
-    @FindBy(xpath = "//button[@draggable='false' and @aria-label='Sağa taşı']")
-    public WebElement rightKey;
-
-    @FindBy(xpath = "//button[@draggable='false' and @aria-label='Aşağı taşı']")
-    public WebElement downKey;
-
-    @FindBy(xpath = "//button[@draggable='false' and @aria-label='Büyüt']")
-    public WebElement enlarge;
-
-    @FindBy(xpath = "//button[@draggable='false' and @aria-label='Küçült']")
-    public WebElement reduce;
-
-    @FindBy(xpath = "//button[@draggable='false' and @aria-label='Street View'u açmak için Pegman'i harita üzerine sürükleyin']")
-    public WebElement streetView;
-
-    @FindBy(xpath = "(//ul[@id='primary-menu']//a[text()='Activities'])[2]")
-    public WebElement aktivitaten;
-
-    @FindBy(xpath = "//h3[text()='OUR HOTEL']")
-    public WebElement ourHotel;
 }
