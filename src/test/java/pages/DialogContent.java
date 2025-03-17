@@ -69,7 +69,7 @@ public class DialogContent extends ReusableMethods {
     public WebElement standardRateText;
 
     @FindBy(xpath = "//p[contains(text(),'(inkl. 1 Erwachsene und 0 Kinder)')]")
-    public List<WebElement>erwachseneUndKinderText;
+    public List<WebElement> erwachseneUndKinderText;
 
     @FindBy(xpath = "(//a[@class='wpml-ls-link'])[5]")
     public WebElement deutschBtn;
@@ -159,7 +159,47 @@ public class DialogContent extends ReusableMethods {
     public WebElement footerPhoneNumber;
 
     @FindBy(xpath = "(//*[@class='info'])[2]")
-    public WebElement emailAddress ;
+    public WebElement emailAddress;
+
+    @FindBy(partialLinkText = "Zusätzliche")
+    public WebElement zusätzlicheBtn;
+
+    @FindBy(xpath = "//td[@class='adult']")
+    public WebElement adultBtn;
+
+    @FindBy(xpath = "//td[@class='child']")
+    public WebElement childBtn;
+
+    @FindBy(className ="btn grey additional-guests-prev prev")
+    public WebElement backBtn;
+
+    @FindBy(className ="btn grey additional-guests-next next")
+    public WebElement nextBtn;
+
+    @FindBy(className ="tab_rate_id_description")
+    public WebElement beschreibungBtn;
+
+    @FindBy(className ="tab_rate_id_features")
+    public WebElement zusatzleistungenBtn;
+
+    @FindBy(className ="tab_rate_id_photos")
+    public WebElement fotosBtn;
+
+    @FindBy(className ="tab-pane tab_rate_id_description active")
+    public WebElement beschreibungText;
+
+    @FindBy(xpath = "(//div[@class='tab-pane amenities_tab tab_rate_id_features active']/ul/li)[1]")
+    public WebElement hausschuheText;
+
+    @FindBy(xpath = "(//div[@class='tab-pane amenities_tab tab_rate_id_features active']/ul/li)[2]")
+    public WebElement voltSteckdosenText;
+
+    @FindBy(xpath = "(//div[@class='tab-pane amenities_tab tab_rate_id_features active']/ul/li)[3] ")
+    public WebElement kabelfernsehenText;
+
+    @FindBy(className ="tab-pane photo_content tab_rate_id_photos active")
+    public WebElement fotosDescription;
+
 
     public WebElement getWebElement(String menuItem) {
         switch (menuItem.toLowerCase()) {
