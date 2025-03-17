@@ -9,6 +9,6 @@ Feature:View Room Details
     When The user clicks on the tablist and displays to verifies content sections
       | Beschreibung     |
       | Zusatzleistungen |
-      | Fotos|
+      | Fotos            |
 
     Then The user clicks on the link "Details ausblenden" to close all sections
