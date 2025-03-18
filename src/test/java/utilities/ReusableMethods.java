@@ -135,4 +135,18 @@ public class ReusableMethods {
             e.printStackTrace();
         }
     }
+
+    public String getCurrentURL() {
+        return GWD.getDriver().getCurrentUrl();
+    }
+
+    public void navigateBack() {
+        GWD.getDriver().navigate().back();
+    }
+
+    public void verifyURL(String expectedUrl) {
+        wait.until(ExpectedConditions.urlToBe(expectedUrl));
+        String actualUrl = getCurrentURL();
+        Assert.assertEquals(actualUrl, expectedUrl, "Redirection failed!");
+    }
 }
