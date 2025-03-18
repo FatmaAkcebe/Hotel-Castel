@@ -5,6 +5,8 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class ViewRoomDetails {
+    ViewRoomDetails element = new ViewRoomDetails();
+
     @And("The user views the Online-Preis section by clicking {string} link")
     public void theUserViewsTheOnlinePreisSectionByClickingLink(String arg0) {
     }
