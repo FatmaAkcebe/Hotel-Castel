@@ -14,6 +14,7 @@ public class ViewRoomDetails_POM extends ReusableMethods {
     }
 
 
+
     @FindBy(css = "span[data-closed-details-text='Details anzeigen']")
     public WebElement detailsAnzeigenLink;
 
