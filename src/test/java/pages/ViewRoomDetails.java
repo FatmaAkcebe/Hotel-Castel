@@ -78,4 +78,6 @@ public class ViewRoomDetails extends ReusableMethods {
 
     @FindBy(xpath = "//div[@class='galleria-thumbnails minimap scrollable']/div")
     public List<WebElement>fotosList;
+
+    //merve
 }
