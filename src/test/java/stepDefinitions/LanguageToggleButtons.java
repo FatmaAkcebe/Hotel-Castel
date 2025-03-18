@@ -18,7 +18,7 @@ public class LanguageToggleButtons {
 
     @Then("The website content should be displayed in the selected language")
     public void theWebsiteContentShouldBeDisplayedInTheSelectedLanguage() {
-        Assert.assertTrue(element.deutschBtn.isSelected());
+        Assert.assertTrue(GWD.getDriver().getCurrentUrl().contains("de"));
     }
 
     @When("The user clicks the language button Englisch")
@@ -28,6 +28,7 @@ public class LanguageToggleButtons {
 
     @And("The language should remain active after page refresh")
     public void theLanguageShouldRemainActiveAfterPageRefresh() {
+        Assert.assertTrue(GWD.getDriver().getCurrentUrl().contains("en"));
         GWD.getDriver().navigate().refresh();
     }
 }
