@@ -6,7 +6,6 @@ import io.cucumber.java.en.When;
 import pages.ViewRoomDetails_POM;
 
 public class ViewsRoomDetails {
-
     ViewRoomDetails_POM element=new ViewRoomDetails_POM();
 
     @And("The user views the Online-Preis section by clicking Details anzeigen link")
