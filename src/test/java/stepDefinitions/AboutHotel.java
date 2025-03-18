@@ -8,12 +8,13 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import pages.DialogContent;
+import runner.ChangeDatesIbrahim;
 import utilities.GWD;
 import utilities.ReusableMethods;
 
 public class AboutHotel {
     ReusableMethods reusableMethods= new ReusableMethods();
-    DialogContent dc = new DialogContent();
+    ChangeDatesIbrahim dc = new ChangeDatesIbrahim();
 
     @When("Click on the About Us link from the menu")
     public void clickOnTheLinkFromTheMenu() {
