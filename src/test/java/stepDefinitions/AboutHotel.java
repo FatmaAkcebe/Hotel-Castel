@@ -1,0 +1,43 @@
+package stepDefinitions;
+
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.testng.Assert;
+import pages.DialogContent;
+import utilities.GWD;
+import utilities.ReusableMethods;
+
+public class AboutHotel {
+    ReusableMethods reusableMethods= new ReusableMethods();
+    DialogContent dc = new DialogContent();
+
+    @When("Click on the About Us link from the menu")
+    public void clickOnTheLinkFromTheMenu() {
+        dc.myClick(dc.aboutUs);
+    }
+
+
+    @Given("Navigate HotelCastle")
+    public void navigateHotelCastle() {
+        GWD.getDriver().get("https://hotel-castle-rastatt.de/");
+    }
+
+    @Then("The about us section should be visible")
+    public void theAboutUsSectionShouldBeVisible() {
+        Assert.assertTrue(dc.aboutHotelDiv.isDisplayed());
+        Assert.assertTrue(dc.unserHotelDiv.getText().contains("Über uns"));
+    }
+
+    @And("Click on the change buttons")
+    public void clickOnTheChangeButtons() {
+        JavascriptExecutor js=(JavascriptExecutor)GWD.getDriver();
+        js.executeScript("window.scrollTo(0,500)");
+        dc.myClick(dc.unserHotelButtonLeft);
+        Assert.assertTrue(dc.unserHotelButtonLeft.isEnabled());
+        Assert.assertTrue(dc.unserHotelButtonRight.isEnabled());
+    }
+}
