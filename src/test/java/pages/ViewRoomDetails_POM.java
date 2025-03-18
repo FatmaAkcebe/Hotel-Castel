@@ -13,8 +13,6 @@ public class ViewRoomDetails_POM extends ReusableMethods {
         PageFactory.initElements(GWD.getDriver(), this);
     }
 
-
-
     @FindBy(css = "span[data-closed-details-text='Details anzeigen']")
     public WebElement detailsAnzeigenLink;
 

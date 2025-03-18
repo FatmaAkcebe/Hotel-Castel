@@ -11,7 +11,6 @@ public class ViewsRoomDetails {
     @And("The user views the Online-Preis section by clicking Details anzeigen link")
     public void theUserViewsTheOnlinePreisSectionByClickingDetailsAnzeigenLink() {
         element.myClick(element.detailsAnzeigenLink);
-        //merve
     }
 
     @When("The user clicks on the tablist and displays to verifies content sections")
