@@ -58,4 +58,187 @@ public class DialogContent extends ReusableMethods {
 
     @FindBy(xpath = "//div//li[@class='menu-right']//a[@class='wpml-ls-link']/img[@alt='Deutsch']")
     public WebElement almanca;
+
+    @FindBy(linkText = "Details anzeigen")
+    public WebElement detailsAnzeigenLink;
+
+    @FindBy(linkText = "Details ausblenden")
+    public WebElement detailsAusbledenLinks;
+
+    @FindBy(xpath = "//h4[text()='Standard Rate']")
+    public WebElement standardRateText;
+
+    @FindBy(xpath = "//p[contains(text(),'(inkl. 1 Erwachsene und 0 Kinder)')]")
+    public List<WebElement> erwachseneUndKinderText;
+
+    @FindBy(xpath = "(//a[@class='wpml-ls-link'])[5]")
+    public WebElement deutschBtn;
+
+    @FindBy(css = "[class='hotel_name ']")
+    public WebElement bookNowControl;
+
+    @FindBy(xpath = "(//a[@class='wpml-ls-link'])[6]")
+    public WebElement englischBtn;
+
+    @FindBy(xpath = "(//div[@class='vc_row wpb_row vc_row-fluid']//p)[1]")
+    public WebElement willkommenBeimTitle;
+
+    @FindBy(xpath = "(//div[@class='vc_row wpb_row vc_row-fluid']//h3)[1]")
+    public WebElement castleHotelRastattTitle;
+
+    @FindBy(xpath = "((//div[@class='vc_row wpb_row vc_row-fluid'])[2]//p)[1]")
+    public WebElement introTextContent;
+
+    @FindBy(css = ".thim-sc-categories-link a.categories-link[href$='anfahrt']")
+    public WebElement midSectionAnfahrt;
+
+    @FindBy(css = ".thim-sc-categories-link a.categories-link[href$='ueber-uns']")
+    public WebElement midSectionUberUns;
+
+    @FindBy(css = ".thim-sc-categories-link a.categories-link[href$='aktivitaeten']")
+    public WebElement midSectionAktivitaten;
+
+    @FindBy(css = ".wpb_wrapper img[alt='hotelrastattanfahrt-min (1)']")
+    public WebElement anfahrtImg;
+
+    @FindBy(css = ".wpb_wrapper img[alt='hotelrastattüberuns-min (1)']")
+    public WebElement uberUnsImg;
+
+    @FindBy(css = ".wpb_wrapper img[alt='rastatt hotel schloss']")
+    public WebElement aktivitatenImg;
+
+    @FindBy(css = "div[class='vc_row wpb_row vc_row-fluid no-fill-sm category-group vc_row-no-padding']")
+    public WebElement homepageMiddleSection;
+
+    @FindBy(css = "div.wpb_wrapper h3.heading_secondary")
+    public WebElement anfahrtPageContent;
+
+    @FindBy(css = "div.wpb_wrapper h3.heading_secondary")
+    public WebElement uberUnsPageContent;
+
+    @FindBy(css = "div.wpb_wrapper h3.heading_secondary")
+    public WebElement activitatenPageContent;
+
+    @FindBy(css = "[class='logo']")
+    public WebElement logo;
+
+    @FindBy(xpath = "(//*[text()='Start'])[3]")
+    public WebElement startButton;
+
+    @FindBy(xpath = "(//*[text()='Über uns'])[3]")
+    public WebElement uberUnsButton;
+
+    @FindBy(xpath = "(//*[text()='Anfahrt'])[3]")
+    public WebElement anfahrtButton;
+
+    @FindBy(xpath = "(//*[text()='Aktivitäten'])[3]")
+    public WebElement aktivitätenButton;
+
+    @FindBy(id = "masthead")
+    public WebElement headerMenu;
+
+    @FindBy(xpath = "(//*[@class='value'])[3]")
+    public WebElement headerPhoneNumber;
+
+    @FindBy(xpath = "//*[text()='Impressum']")
+    public WebElement impressumButton;
+
+    @FindBy(xpath = "//*[text()='Datenschutz']")
+    public WebElement datenschutzButton;
+
+    @FindBy(css = "[class='scrolldown']")
+    public WebElement goUpButton;
+
+    @FindBy(xpath = "//*[text()='OK']")
+    public WebElement okButton;
+
+    @FindBy(css = "[class='footer ']")
+    public WebElement footerMenu;
+
+    @FindBy(xpath = "//*[text()='07222 1590750']")
+    public WebElement footerPhoneNumber;
+
+    @FindBy(xpath = "(//*[@class='info'])[2]")
+    public WebElement emailAddress;
+
+    @FindBy(partialLinkText = "Zusätzliche")
+    public WebElement zusätzlicheBtn;
+
+    @FindBy(xpath = "//td[@class='adult']")
+    public WebElement adultBtn;
+
+    @FindBy(xpath = "//td[@class='child']")
+    public WebElement childBtn;
+
+    @FindBy(className ="btn grey additional-guests-prev prev")
+    public WebElement backBtn;
+
+    @FindBy(className ="btn grey additional-guests-next next")
+    public WebElement nextBtn;
+
+    @FindBy(className ="tab_rate_id_description")
+    public WebElement beschreibungBtn;
+
+    @FindBy(className ="tab_rate_id_features")
+    public WebElement zusatzleistungenBtn;
+
+    @FindBy(className ="tab_rate_id_photos")
+    public WebElement fotosBtn;
+
+    @FindBy(className ="tab-pane tab_rate_id_description active")
+    public WebElement beschreibungText;
+
+    @FindBy(xpath = "(//div[@class='tab-pane amenities_tab tab_rate_id_features active']/ul/li)[1]")
+    public WebElement hausschuheText;
+
+    @FindBy(xpath = "(//div[@class='tab-pane amenities_tab tab_rate_id_features active']/ul/li)[2]")
+    public WebElement voltSteckdosenText;
+
+    @FindBy(xpath = "(//div[@class='tab-pane amenities_tab tab_rate_id_features active']/ul/li)[3] ")
+    public WebElement kabelfernsehenText;
+
+    @FindBy(className ="tab-pane photo_content tab_rate_id_photos active")
+    public WebElement fotosDescription;
+
+    @FindBy(xpath = "//div[@class='tab-content']")
+    public WebElement fotosPanel;
+
+    @FindBy(xpath = "//div[@class='small']")
+    public List<WebElement> smallFotos;
+
+    @FindBy(xpath = "//div[@id='galleria']")
+    public WebElement fotosGalleriaWindow;
+
+    @FindBy(css = "div [id='modal-close']")
+    public WebElement closeBtn;
+
+    @FindBy(xpath = "//div[@class='galleria-thumbnails minimap scrollable']/div")
+    public List<WebElement>fotosList;
+
+
+    public WebElement getWebElement(String menuItem) {
+        switch (menuItem.toLowerCase()) {
+            case "logo":
+                return this.logo;
+            case "start":
+                return this.startButton;
+            case "über uns":
+                return this.uberUnsButton;
+            case "anfahrt":
+                return this.anfahrtButton;
+            case "aktivitäten":
+                return this.aktivitätenButton;
+            case "header phone number":
+                return this.headerPhoneNumber;
+            case "footer phone number":
+                return this.footerPhoneNumber;
+            case "email address":
+                return this.emailAddress;
+            case "impressum":
+                return this.impressumButton;
+            case "datenschutz":
+                return this.datenschutzButton;
+        }
+        return null;
+    }
 }
