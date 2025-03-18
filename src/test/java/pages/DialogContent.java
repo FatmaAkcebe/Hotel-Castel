@@ -200,6 +200,21 @@ public class DialogContent extends ReusableMethods {
     @FindBy(className ="tab-pane photo_content tab_rate_id_photos active")
     public WebElement fotosDescription;
 
+    @FindBy(xpath = "//div[@class='tab-content']")
+    public WebElement fotosPanel;
+
+    @FindBy(xpath = "//div[@class='small']")
+    public List<WebElement> smallFotos;
+
+    @FindBy(xpath = "//div[@id='galleria']")
+    public WebElement fotosGalleriaWindow;
+
+    @FindBy(css = "div [id='modal-close']")
+    public WebElement closeBtn;
+
+    @FindBy(xpath = "//div[@class='galleria-thumbnails minimap scrollable']/div")
+    public List<WebElement>fotosList;
+
 
     public WebElement getWebElement(String menuItem) {
         switch (menuItem.toLowerCase()) {
