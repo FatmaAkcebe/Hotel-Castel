@@ -1,4 +1,4 @@
-package runner;
+package pages;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -10,7 +10,7 @@ import java.util.List;
 
 public class ChangeDatesIbrahim extends ReusableMethods {
     public ChangeDatesIbrahim() {
-        
+
         PageFactory.initElements(GWD.getDriver(), this);
     }
 

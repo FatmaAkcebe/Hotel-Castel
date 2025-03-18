@@ -5,10 +5,8 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
-import pages.DialogContent;
-import runner.ChangeDatesIbrahim;
+import pages.ChangeDatesIbrahim;
 import utilities.GWD;
 import utilities.ReusableMethods;
 
