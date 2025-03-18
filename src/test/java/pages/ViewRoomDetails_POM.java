@@ -8,15 +8,15 @@ import utilities.ReusableMethods;
 
 import java.util.List;
 
-public class ViewRoomDetails extends ReusableMethods {
-    public ViewRoomDetails() {
-        PageFactory.initElements(GWD.getDriver(),this);
+public class ViewRoomDetails_POM extends ReusableMethods {
+    public ViewRoomDetails_POM() {
+        PageFactory.initElements(GWD.getDriver(), this);
     }
 
-    @FindBy(linkText = "Details anzeigen")
+    @FindBy(css = "span[data-closed-details-text='Details anzeigen']")
     public WebElement detailsAnzeigenLink;
 
-    @FindBy(linkText = "Details ausblenden")
+    @FindBy(css = "span[data-opened-details-text='Details ausblenden']")
     public WebElement detailsAusbledenLinks;
 
     @FindBy(xpath = "//h4[text()='Standard Rate']")
@@ -34,22 +34,22 @@ public class ViewRoomDetails extends ReusableMethods {
     @FindBy(xpath = "//td[@class='child']")
     public WebElement childBtn;
 
-    @FindBy(className ="btn grey additional-guests-prev prev")
+    @FindBy(css = "btn grey additional-guests-prev prev")
     public WebElement backBtn;
 
-    @FindBy(className ="btn grey additional-guests-next next")
+    @FindBy(css= "btn grey additional-guests-next next")
     public WebElement nextBtn;
 
-    @FindBy(className ="tab_rate_id_description")
+    @FindBy(css = "tab_rate_id_description")
     public WebElement beschreibungBtn;
 
-    @FindBy(className ="tab_rate_id_features")
+    @FindBy(css = "tab_rate_id_features")
     public WebElement zusatzleistungenBtn;
 
-    @FindBy(className ="tab_rate_id_photos")
+    @FindBy(css= "tab_rate_id_photos")
     public WebElement fotosBtn;
 
-    @FindBy(className ="tab-pane tab_rate_id_description active")
+    @FindBy(css = "tab-pane tab_rate_id_description active")
     public WebElement beschreibungText;
 
     @FindBy(xpath = "(//div[@class='tab-pane amenities_tab tab_rate_id_features active']/ul/li)[1]")
@@ -61,7 +61,7 @@ public class ViewRoomDetails extends ReusableMethods {
     @FindBy(xpath = "(//div[@class='tab-pane amenities_tab tab_rate_id_features active']/ul/li)[3] ")
     public WebElement kabelfernsehenText;
 
-    @FindBy(className ="tab-pane photo_content tab_rate_id_photos active")
+    @FindBy(css = "tab-pane photo_content tab_rate_id_photos active")
     public WebElement fotosDescription;
 
     @FindBy(xpath = "//div[@class='tab-content']")
@@ -77,7 +77,6 @@ public class ViewRoomDetails extends ReusableMethods {
     public WebElement closeBtn;
 
     @FindBy(xpath = "//div[@class='galleria-thumbnails minimap scrollable']/div")
-    public List<WebElement>fotosList;
+    public List<WebElement> fotosList;
 
-    //merve
 }
