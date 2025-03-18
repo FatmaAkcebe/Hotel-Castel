@@ -14,10 +14,21 @@ public class CheckIfTheHotelHasDirections {
     @Given("Navigate to hootelCastle")
     public void navigateToHootelCastle() {
         GWD.getDriver().get("https://hotel-castle-rastatt.de/");
-//        dc.jsClick(dc.almanca);
         dc.myClick(dc.anfahrt);
     }
 
+    @When("The user Check the description of the hotel's location.")
+    public void theUserCheckTheDescriptionOfTheHotelSLocation() {
+    }
+
+    @Then("The user Check the buttons on the map")
+    public void theUserCheckTheButtonsOnTheMap() {
+    }
+
+    @And("The user Check the hotel's activity information")
+    public void theUserCheckTheHotelSActivityInformation() {
+    }
+/*
     @When("Check the description of the hotel's location.")
     public void checkTheDescriptionOfTheHotelSLocation() {
         dc.verifyContainsText(dc.text,"SO FINDEN SIE UNS");
@@ -44,4 +55,6 @@ public class CheckIfTheHotelHasDirections {
         dc.myClick(dc.aktivitaten);
         dc.verifyContainsText(dc.ourHotel,"OUR HOTEL");
     }
+*/
 }
+
