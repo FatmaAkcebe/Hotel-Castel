@@ -1,13 +1,10 @@
 package stepDefinitions;
 
-import io.cucumber.java.en.And;
-import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
-import pages.DialogContent;
+import io.cucumber.java.en.*;
+import pages.CurrencySelect;
 
 public class CurrencySelection {
-
-    DialogContent dc = new DialogContent();
+    CurrencySelect cs = new CurrencySelect();
 
     @When("The user displays the currency section located at the top-right corner of the booking page")
     public void theUserDisplaysTheCurrencySectionLocatedAtTheTopRightCornerOfTheBookingPage() {
