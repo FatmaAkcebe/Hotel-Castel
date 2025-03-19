@@ -148,30 +148,4 @@ public class DialogContent extends ReusableMethods {
 
     @FindBy(xpath = "(//*[@class='info'])[2]")
     public WebElement emailAddress;
-
-    public WebElement getWebElement(String menuItem) {
-        switch (menuItem.toLowerCase()) {
-            case "logo":
-                return this.logo;
-            case "start":
-                return this.startButton;
-            case "über uns":
-                return this.uberUnsButton;
-            case "anfahrt":
-                return this.anfahrtButton;
-            case "aktivitäten":
-                return this.aktivitätenButton;
-            case "header phone number":
-                return this.headerPhoneNumber;
-            case "footer phone number":
-                return this.footerPhoneNumber;
-            case "email address":
-                return this.emailAddress;
-            case "impressum":
-                return this.impressumButton;
-            case "datenschutz":
-                return this.datenschutzButton;
-        }
-        return null;
-    }
 }
