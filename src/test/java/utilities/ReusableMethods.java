@@ -122,19 +122,19 @@ public class ReusableMethods {
         }
     }
 
-    public void closeWindow() {
-        try {
-            Robot robot = new Robot();
+public void closeWindow() {
+    try {
+        Robot robot = new Robot();
 
-            robot.keyPress(KeyEvent.VK_ALT);
-            robot.keyPress(KeyEvent.VK_F4);
+        robot.keyPress(KeyEvent.VK_ALT);
+        robot.keyPress(KeyEvent.VK_F4);
 
-            robot.keyRelease(KeyEvent.VK_F4);
-            robot.keyRelease(KeyEvent.VK_ALT);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        robot.keyRelease(KeyEvent.VK_F4);
+        robot.keyRelease(KeyEvent.VK_ALT);
+    } catch (AWTException e) {
+        throw new RuntimeException(e);
     }
+}
 
     public String getCurrentURL() {
         return GWD.getDriver().getCurrentUrl();
