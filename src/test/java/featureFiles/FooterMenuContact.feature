@@ -5,18 +5,15 @@ Feature: Footer interactions on the website
     And The user scrolls down the page
     And The user accepts the cookie banner
 
-  Scenario Outline: Clicking on the footer menu items and verifying the expected results
-    When The user clicks on the "<Link>" in the footer
-    Then The "<Link>" should be clickable
-    And The user should be redirected to the "<Expected Result>" page
-
-    Examples:
-      | Link                | Expected Result       |
-      | Footer Phone Number |                       |
-      | Email Address       |                       |
-      | Impressum           | impressum             |
-      | Datenschutz         | datenschutzerklaerung |
-
-  Scenario: Clicking on the "Up Button"
+  Scenario: Clicking on the footer menu items and verifying the expected results
+    When The user clicks on the phone number button in the footer menu
+    And The application selection screen should appear, listing apps that can make a call
+    When The user clicks on the email address button in the footer menu
+    When The user clicks on the Impressum button in the footer menu
+    Then The user should be redirected to the Impressum page
+    And The user navigates back to the homepage
+    When The user clicks on the Datenschutz button in the footer menu
+    Then The user should be redirected to the Datenschutz page
+    And The user navigates back to the homepage
     When The user clicks on the go up button
     Then The go up button should be clickable. The page should scroll smoothly back to the top
