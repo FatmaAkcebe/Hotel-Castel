@@ -1,51 +1,67 @@
 package stepDefinitions;
 
-import io.cucumber.java.en.And;
-import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
+import io.cucumber.java.en.*;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
-import pages.DialogContent;
+import pages.FooterMenuContact_POM;
+import utilities.ConfigReader;
 
 public class FooterMenuContact {
-    DialogContent dc = new DialogContent();
+    FooterMenuContact_POM fm = new FooterMenuContact_POM();
 
     @And("The user scrolls down the page")
     public void theUserScrollsDownThePage() {
-        dc.scrollToElement(dc.footerMenu);
+        fm.scrollToElement(fm.footerMenu);
     }
 
     @And("The user accepts the cookie banner")
     public void theUserAcceptsTheCookieBanner() {
-        dc.myClick(dc.okButton);
+        fm.myClick(fm.okButton);
     }
 
-    @When("The user clicks on the {string} in the footer")
-    public void theUserClicksOnTheInTheFooter(String menuItem) {
-        dc.myClick(dc.getWebElement(menuItem));
-        if (menuItem.equals("email address")) {
-            dc.Wait(2);
-            dc.closeWindow();
-        }
-        if (menuItem.equals("Footer Phone Number")) {
-            dc.myClick(dc.footerPhoneNumber);
-            dc.robotExecute(1);
-            dc.Wait(2);
-            dc.closeWindow();
-        }
+    @When("The user clicks on the phone number button in the footer menu")
+    public void theUserClicksOnThePhoneNumberButtonInTheFooterMenu() {
+        fm.wait.until(ExpectedConditions.visibilityOf(fm.footerPhoneNumber));
+        fm.myClick(fm.footerPhoneNumber);
     }
 
-    @Then("The {string} should be clickable")
-    public void theShouldBeClickable(String menuItem) {
-        Assert.assertTrue(dc.footerMenu.isEnabled());
+    @When("The user clicks on the email address button in the footer menu")
+    public void theUserClicksOnTheEmailAddressButtonInTheFooterMenu() {
+        fm.wait.until(ExpectedConditions.visibilityOf(fm.emailAddress));
+        fm.myClick(fm.emailAddress);
+        fm.Wait(2);
+        fm.closeWindow();
+    }
+
+    @When("The user clicks on the Impressum button in the footer menu")
+    public void theUserClicksOnTheImpressumButtonInTheFooterMenu() {
+        fm.wait.until(ExpectedConditions.visibilityOf(fm.impressumButton));
+        fm.myClick(fm.impressumButton);
+    }
+
+    @Then("The user should be redirected to the Impressum page")
+    public void theUserShouldBeRedirectedToTheImpressumPage() {
+        fm.verifyURL(ConfigReader.getProperty("impressumPageURL"));
+    }
+
+    @When("The user clicks on the Datenschutz button in the footer menu")
+    public void theUserClicksOnTheDatenschutzButtonInTheFooterMenu() {
+        fm.wait.until(ExpectedConditions.visibilityOf(fm.datenschutzButton));
+        fm.myClick(fm.datenschutzButton);
+    }
+
+    @Then("The user should be redirected to the Datenschutz page")
+    public void theUserShouldBeRedirectedToTheDatenschutzPage() {
+        fm.verifyURL(ConfigReader.getProperty("datenschutzPageURL"));
     }
 
     @When("The user clicks on the go up button")
     public void theUserClicksOnTheGoUpButton() {
-        dc.myClick(dc.goUpButton);
+        fm.myClick(fm.goUpButton);
     }
 
     @Then("The go up button should be clickable. The page should scroll smoothly back to the top")
     public void theGoUpButtonShouldBeClickableThePageShouldScrollSmoothlyBackToTheTop() {
-        Assert.assertTrue(dc.goUpButton.isEnabled());
+        Assert.assertTrue(fm.goUpButton.isEnabled());
     }
 }
