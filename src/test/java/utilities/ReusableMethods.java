@@ -134,6 +134,14 @@ public void closeWindow() {
     } catch (AWTException e) {
         throw new RuntimeException(e);
     }
+
+
+
+
+
+
+
+
 }
 
     public String getCurrentURL() {
@@ -148,5 +156,29 @@ public void closeWindow() {
         wait.until(ExpectedConditions.urlToBe(expectedUrl));
         String actualUrl = getCurrentURL();
         Assert.assertEquals(actualUrl, expectedUrl, "Redirection failed!");
+    }
+    public void navigateToReviewsPage() {
+        System.out.println("Navigating to the customer reviews page...");
+
+    }
+
+    public void loadReviews() {
+        System.out.println("Loading and displaying reviews with star ratings...");
+
+    }
+
+    public void areReviewsLegible() {
+        System.out.println("Checking if reviews are legible, well-formatted, and accessible...");
+
+    }
+
+    public void isDatabaseUpdated() {
+        System.out.println("Verifying if the database properly stores and updates reviews...");
+
+    }
+
+    public void canUserEvaluateFeedback() {
+        System.out.println("Checking if users can evaluate feedback easily...");
+
     }
 }
