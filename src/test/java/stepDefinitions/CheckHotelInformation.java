@@ -43,13 +43,13 @@ public class CheckHotelInformation {
         }
 
         Set<String> expectedDetails = new HashSet<>(Arrays.asList(
-                "Anlagenname: Hotel Castle Rastatt",
-                "Str./Hausnr.: Niederwaldstr. 2/2",
-                "Stadt : Rastatt",
-                "PLZ : 76437",
-                "Kontaktperson: Castle Hotel Rastatt Team",
-                "Telefon: +49 72221590750",
-                "E-Mail-Adresse: info@hotel-castle-rastatt.de"
+                ConfigReader.getProperty("Anlagenname"),
+                ConfigReader.getProperty("StrHausnr"),
+                ConfigReader.getProperty("Stadt"),
+                ConfigReader.getProperty("PLZ"),
+                ConfigReader.getProperty("Kontaktperson"),
+                ConfigReader.getProperty("Telefon"),
+                ConfigReader.getProperty("EmailAdresse")
         ));
 
         Assert.assertTrue(actualDetails.containsAll(expectedDetails));
@@ -61,8 +61,8 @@ public class CheckHotelInformation {
         String[] reservationDetailsArray = reservationDetailsText.split("\n");
 
         Set<String> expectedreservation = new HashSet<>(Arrays.asList(
-                "Anreise: 15:00",
-                "Abreise: 11:00"
+                ConfigReader.getProperty("Anreise"),
+                ConfigReader.getProperty("Abreise")
         ));
 
         Set<String> actualreservation = new HashSet<>(Arrays.asList(reservationDetailsArray));
