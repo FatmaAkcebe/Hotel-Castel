@@ -28,47 +28,50 @@ public class ViewRoomDetails_POM extends ReusableMethods {
     @FindBy(partialLinkText = "Zusätzliche")
     public WebElement zusätzlicheBtn;
 
-    @FindBy(xpath = "//td[@class='adult']")
+    @FindBy(xpath = "//span[text()='2.']")
     public WebElement adultBtn;
 
-    @FindBy(xpath = "//td[@class='child']")
+    @FindBy(xpath = "//span[text()='1.']")
     public WebElement childBtn;
 
-    @FindBy(css = "btn grey additional-guests-prev prev")
+    @FindBy(xpath = "//a[text()='<']")
     public WebElement backBtn;
 
-    @FindBy(css= "btn grey additional-guests-next next")
+    @FindBy(xpath = "//a[text()='>']")
     public WebElement nextBtn;
 
-    @FindBy(css = "tab_rate_id_description")
+    @FindBy(css = "th.date")
+    public List<WebElement> dateList;
+
+    @FindBy(xpath = "//a[contains(text(),'Beschreibung')]")
     public WebElement beschreibungBtn;
 
-    @FindBy(css = "tab_rate_id_features")
+    @FindBy(xpath = "//a[contains(text(),'Zusatzleistungen')]")
     public WebElement zusatzleistungenBtn;
 
-    @FindBy(css= "tab_rate_id_photos")
+    @FindBy(xpath = "//a[contains(text(),'Fotos')]")
     public WebElement fotosBtn;
 
-    @FindBy(css = "tab-pane tab_rate_id_description active")
+    @FindBy(xpath = "(//font[@xss='removed'])[2]")
     public WebElement beschreibungText;
 
-    @FindBy(xpath = "(//div[@class='tab-pane amenities_tab tab_rate_id_features active']/ul/li)[1]")
+    @FindBy(css = "[class='tab-content']")
+    public WebElement tabContent;
+
+    @FindBy(xpath = "(//*[text()='Hausschuhe'])[1]")
     public WebElement hausschuheText;
 
-    @FindBy(xpath = "(//div[@class='tab-pane amenities_tab tab_rate_id_features active']/ul/li)[2]")
-    public WebElement voltSteckdosenText;
-
-    @FindBy(xpath = "(//div[@class='tab-pane amenities_tab tab_rate_id_features active']/ul/li)[3] ")
+    @FindBy(xpath = "(//*[text()='Kabelfernsehen'])[1]")
     public WebElement kabelfernsehenText;
 
-    @FindBy(css = "tab-pane photo_content tab_rate_id_photos active")
+    @FindBy(xpath = "(//*[text()='Heizung'])[1]")
+    public WebElement heizungText;
+
+    @FindBy(css = "[class='room_image']")
     public WebElement fotosDescription;
 
-    @FindBy(xpath = "//div[@class='tab-content']")
-    public WebElement fotosPanel;
-
-    @FindBy(xpath = "//div[@class='small']")
-    public List<WebElement> smallFotos;
+    @FindBy(css = "[class='image']")
+    public List<WebElement> smallFotoClick;
 
     @FindBy(xpath = "//div[@id='galleria']")
     public WebElement fotosGalleriaWindow;
@@ -76,7 +79,15 @@ public class ViewRoomDetails_POM extends ReusableMethods {
     @FindBy(css = "div [id='modal-close']")
     public WebElement closeBtn;
 
-    @FindBy(xpath = "//div[@class='galleria-thumbnails minimap scrollable']/div")
-    public List<WebElement> fotosList;
-
+    public WebElement getWebElement(String menuItem) {
+        switch (menuItem) {
+            case "Beschreibung":
+                return this.beschreibungBtn;
+            case "Zusatzleistungen":
+                return this.zusatzleistungenBtn;
+            case "Fotos":
+                return this.fotosBtn;
+        }
+        return null;
+    }
 }
