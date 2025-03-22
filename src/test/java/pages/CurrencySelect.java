@@ -17,6 +17,9 @@ public class CurrencySelect extends ReusableMethods {
     @FindBy(css = "a[class='last dropdown'] span")
     public WebElement currencyUnit;
 
+    @FindBy(xpath = "//a[@class='last dropdown active']")
+    public WebElement currencyUnitClose;
+
     @FindBy(css = "div[id='div-currency-selector'] div[class='slimScrollDiv'] li")
     public List<WebElement> currencyList;
 
@@ -25,10 +28,4 @@ public class CurrencySelect extends ReusableMethods {
 
     @FindBy(xpath = "//div[@id='div-currency-selector']")
     public WebElement dropDownMenu;
-
-    @FindBy(xpath = "//input[@name='search_start_date']")
-    public WebElement checkInCalendar;
-
-    @FindBy(xpath = "//input[@name='search_end_date']")
-    public WebElement checkOutCalendar;
 }
