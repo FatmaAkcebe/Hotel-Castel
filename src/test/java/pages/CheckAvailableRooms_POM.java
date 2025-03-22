@@ -31,4 +31,7 @@ public class CheckAvailableRooms_POM extends ReusableMethods {
 
     @FindBy(xpath = "//div[contains(@class, 'av-rate-price') and not(contains(@style, 'display: none'))]//span")
     public List<WebElement> roomPrices;
+
+    @FindBy(className = "message_container")
+    public WebElement errorMsg;
 }
