@@ -135,13 +135,6 @@ public void closeWindow() {
         throw new RuntimeException(e);
     }
 
-
-
-
-
-
-
-
 }
 
     public String getCurrentURL() {
