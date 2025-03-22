@@ -7,6 +7,7 @@ import io.cucumber.java.en.When;
 import org.openqa.selenium.JavascriptExecutor;
 import org.testng.Assert;
 import pages.ChangeDatesIbrahim;
+import utilities.ConfigReader;
 import utilities.GWD;
 import utilities.ReusableMethods;
 
@@ -22,7 +23,7 @@ public class AboutHotel {
 
     @Given("Navigate HotelCastle")
     public void navigateHotelCastle() {
-        GWD.getDriver().get("https://hotel-castle-rastatt.de/");
+        GWD.getDriver().get(ConfigReader.getProperty("homepageURL"));
     }
 
     @Then("The about us section should be visible")
