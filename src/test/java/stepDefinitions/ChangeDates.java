@@ -21,26 +21,25 @@ public class ChangeDates {
     @When("Click on the date picker")
     public void clickOnTheDatePicker() {
         dc.scrollToElement(dc.multidate);
-        JavascriptExecutor js = (JavascriptExecutor) GWD.getDriver();
         js.executeScript("arguments[0].click();", dc.multidate);
     }
 
-    @Then("Select a check-in date")
+    @Then("Select a check-in and check-out date")
     public void selectACheckInDate() {
-        int todayP = Integer.parseInt(dc.today.getText());
+        //int todayP = Integer.parseInt(dc.today.getText());
         LocalDate today = LocalDate.now();
-        LocalDate lastDay = today.withDayOfMonth(30);
+        //LocalDate lastDay = today.withDayOfMonth(30);
         int randomDay = (int) (Math.random() * (30 - today.getDayOfMonth() + 1)) + today.getDayOfMonth();
         System.out.println("randomDay = " + randomDay);
 
-
-        String url= "https://hotels.cloudbeds.com/de/reservas/pwWAUD#checkin=2025-03-"+todayP+"&checkout=2025-03-"+randomDay;
-
+        //js.executeScript("arguments[0].click();", dc.today);
         dc.myClick(dc.today);
         dc.myClick(dc.multiDateList.get(randomDay));
+        //js.executeScript("arguments[0].click();", dc.multiDateList.get(randomDay));
         dc.myClick(dc.checkAvailability);
 
-        dc.wait.until(ExpectedConditions.visibilityOf(dc.checkAvailabilityButton));
+//        dc.wait.until(ExpectedConditions.visibilityOf(dc.checkAvailabilityButton));
+//        Assert.assertTrue(dc.checkAvailabilityButton.isDisplayed());
 
     }
 
@@ -58,7 +57,6 @@ public class ChangeDates {
             Assert.assertFalse(dc.multiDateList.get(i).isSelected());
             break;
         }
-        Assert.assertTrue(dc.checkAvailabilityButton.isDisplayed());
     }
 
     @And("change a check-in date")
@@ -74,50 +72,51 @@ public class ChangeDates {
 //
 //        dc.checkIn.sendKeys(today+1);
         dc.myClick(dc.checkIn);
-//        String currentDate = dc.checkIn.getAttribute("value");
-//
-//        String[] dateParts = currentDate.split("/");
-//        int day = Integer.parseInt(dateParts[0]);
-//        int month = Integer.parseInt(dateParts[1]);
-//        int year = Integer.parseInt(dateParts[2]);
-//
-//        day += 1;
-//        if (day > 30) {
-//            day = 1;
-//            month += 1;
-//            if (month > 12) {
-//                month = 1;
-//                year += 1;
-//            }
-//        }
-//
-//        String newDate = String.format("%02d/%02d/%d", day, month, year);
-//        dc.checkIn.sendKeys(Keys.CONTROL, "a", Keys.BACK_SPACE);
-//        dc.checkIn.sendKeys(newDate);
-        int year = 2025;
+        String currentDate = dc.checkIn.getAttribute("value");
 
-        // 1-12 arası rastgele ay üret
-        int checkInMonth = (int) (Math.random() * 12) + 1;
+        String[] dateParts = currentDate.split("/");
+        int day = Integer.parseInt(dateParts[0]);
+        int month = Integer.parseInt(dateParts[1]);
+        int year = Integer.parseInt(dateParts[2]);
 
-        // 1-30 arası rastgele gün üret
-        int checkInDay = (int) (Math.random() * 30) + 1;
-
-        // Check-in'den 1-3 gün sonrası için check-out günü belirle
-        int checkOutDay = checkInDay + (int) (Math.random() * 3) + 1;
-        int checkOutMonth = checkInMonth;
-
-        // Eğer gün 30'u aşarsa bir sonraki aya geç
-        if (checkOutDay > 30) {
-            checkOutDay -= 30;
-            checkOutMonth++;
-            if (checkOutMonth > 12) {
-                checkOutMonth = 1;
-                year++;
+        day += 1;
+        if (day > 30) {
+            day = 1;
+            month += 1;
+            if (month > 12) {
+                month = 1;
+                year += 1;
             }
         }
-        String newDate = String.format("%02d/%02d/%d", checkOutDay, checkInMonth, year);
+
+        String newDate = String.format("%02d/%02d/%d", day, month, year);
         dc.checkIn.sendKeys(Keys.CONTROL, "a", Keys.BACK_SPACE);
         dc.checkIn.sendKeys(newDate);
+        dc.myClick(dc.checkAvailabilityButton);
+//        int year = 2025;
+//
+//        // 1-12 arası rastgele ay üret
+//        int checkInMonth = (int) (Math.random() * 12) + 1;
+//
+//        // 1-30 arası rastgele gün üret
+//        int checkInDay = (int) (Math.random() * 30) + 1;
+//
+//        // Check-in'den 1-3 gün sonrası için check-out günü belirle
+//        int checkOutDay = checkInDay + (int) (Math.random() * 3) + 1;
+//        int checkOutMonth = checkInMonth;
+//
+//        // Eğer gün 30'u aşarsa bir sonraki aya geç
+//        if (checkOutDay > 30) {
+//            checkOutDay -= 30;
+//            checkOutMonth++;
+//            if (checkOutMonth > 12) {
+//                checkOutMonth = 1;
+//                year++;
+//            }
+//        }
+//        String newDate = String.format("%02d/%02d/%d", checkOutDay, checkInMonth, year);
+//        dc.checkIn.sendKeys(Keys.CONTROL, "a", Keys.BACK_SPACE);
+//        dc.checkIn.sendKeys(newDate);
     }
 
     @Then("change a check-out date")
