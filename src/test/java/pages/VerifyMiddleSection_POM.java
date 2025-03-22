@@ -6,23 +6,11 @@ import org.openqa.selenium.support.PageFactory;
 import utilities.GWD;
 import utilities.ReusableMethods;
 
-public class VerifyMiddleSectionContent extends ReusableMethods {
+public class VerifyMiddleSection_POM extends ReusableMethods {
 
-    public VerifyMiddleSectionContent() {
+    public VerifyMiddleSection_POM() {
         PageFactory.initElements(GWD.getDriver(), this);
     }
-
-    @FindBy(xpath = "(//*[text()='Start'])[3]")
-    public WebElement startButton;
-
-    @FindBy(xpath = "(//div[@class='vc_row wpb_row vc_row-fluid']//p)[1]")
-    public WebElement willkommenBeimTitle;
-
-    @FindBy(xpath = "(//div[@class='vc_row wpb_row vc_row-fluid']//h3)[1]")
-    public WebElement castleHotelRastattTitle;
-
-    @FindBy(xpath = "((//div[@class='vc_row wpb_row vc_row-fluid'])[2]//p)[1]")
-    public WebElement introTextContent;
 
     @FindBy(css = ".thim-sc-categories-link a.categories-link[href$='anfahrt']")
     public WebElement midSectionAnfahrt;
@@ -52,6 +40,5 @@ public class VerifyMiddleSectionContent extends ReusableMethods {
     public WebElement uberUnsPageContent;
 
     @FindBy(css = "div.wpb_wrapper h3.heading_secondary")
-    public WebElement activitatenPageContent;
-
+    public WebElement aktivitatenPageContent;
 }
