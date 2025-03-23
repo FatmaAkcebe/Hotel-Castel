@@ -10,6 +10,8 @@ import java.awt.*;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
 import java.time.Duration;
+import java.time.LocalDate;
+import java.util.Random;
 
 public class ReusableMethods {
     public WebDriverWait wait = new WebDriverWait(GWD.getDriver(), Duration.ofSeconds(ConfigReader.getIntProperty("explicit.wait")));
@@ -134,7 +136,6 @@ public void closeWindow() {
     } catch (AWTException e) {
         throw new RuntimeException(e);
     }
-
 }
 
     public String getCurrentURL() {
@@ -150,28 +151,19 @@ public void closeWindow() {
         String actualUrl = getCurrentURL();
         Assert.assertEquals(actualUrl, expectedUrl, "Redirection failed!");
     }
-    public void navigateToReviewsPage() {
-        System.out.println("Navigating to the customer reviews page...");
+    public static int[] generateCheckInOutDays(LocalDate today) {
+        int todayDay = today.getDayOfMonth();
+        int maxDaysInMonth = today.lengthOfMonth();
 
+        Random random = new Random();
+        int checkInDay = todayDay + random.nextInt(maxDaysInMonth - todayDay + 1);
+
+        int checkOutDay = checkInDay + 1;
+
+        if (checkOutDay > maxDaysInMonth) {
+            checkOutDay = 1;
+        }
+        return new int[]{checkInDay, checkOutDay};
     }
 
-    public void loadReviews() {
-        System.out.println("Loading and displaying reviews with star ratings...");
-
-    }
-
-    public void areReviewsLegible() {
-        System.out.println("Checking if reviews are legible, well-formatted, and accessible...");
-
-    }
-
-    public void isDatabaseUpdated() {
-        System.out.println("Verifying if the database properly stores and updates reviews...");
-
-    }
-
-    public void canUserEvaluateFeedback() {
-        System.out.println("Checking if users can evaluate feedback easily...");
-
-    }
 }
