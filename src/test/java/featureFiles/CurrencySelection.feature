@@ -8,5 +8,5 @@ Feature:Currency Selection
     And The user selects a check-out date later than the check-in date
     Then A list of available rooms for the selected period should be displayed
     When The user displays the currency section located at the top-right corner of the booking page
-    And The user clicks on the currency section and displays the opened dropdown menu
-    Then The user displays each currency in the drop-down menu and checks whether it is active by clicking on it
+    And The user clicks on the currency section to display the drop-down menu
+    Then The user clicks each currency in the drop-down menu and checks if it is activated
