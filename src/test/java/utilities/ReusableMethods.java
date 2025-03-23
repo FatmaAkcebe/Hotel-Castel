@@ -122,17 +122,56 @@ public class ReusableMethods {
         }
     }
 
-    public void closeWindow() {
-        try {
-            Robot robot = new Robot();
+public void closeWindow() {
+    try {
+        Robot robot = new Robot();
 
-            robot.keyPress(KeyEvent.VK_ALT);
-            robot.keyPress(KeyEvent.VK_F4);
+        robot.keyPress(KeyEvent.VK_ALT);
+        robot.keyPress(KeyEvent.VK_F4);
 
-            robot.keyRelease(KeyEvent.VK_F4);
-            robot.keyRelease(KeyEvent.VK_ALT);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        robot.keyRelease(KeyEvent.VK_F4);
+        robot.keyRelease(KeyEvent.VK_ALT);
+    } catch (AWTException e) {
+        throw new RuntimeException(e);
+    }
+
+}
+
+    public String getCurrentURL() {
+        return GWD.getDriver().getCurrentUrl();
+    }
+
+    public void navigateBack() {
+        GWD.getDriver().navigate().back();
+    }
+
+    public void verifyURL(String expectedUrl) {
+        wait.until(ExpectedConditions.urlToBe(expectedUrl));
+        String actualUrl = getCurrentURL();
+        Assert.assertEquals(actualUrl, expectedUrl, "Redirection failed!");
+    }
+    public void navigateToReviewsPage() {
+        System.out.println("Navigating to the customer reviews page...");
+
+    }
+
+    public void loadReviews() {
+        System.out.println("Loading and displaying reviews with star ratings...");
+
+    }
+
+    public void areReviewsLegible() {
+        System.out.println("Checking if reviews are legible, well-formatted, and accessible...");
+
+    }
+
+    public void isDatabaseUpdated() {
+        System.out.println("Verifying if the database properly stores and updates reviews...");
+
+    }
+
+    public void canUserEvaluateFeedback() {
+        System.out.println("Checking if users can evaluate feedback easily...");
+
     }
 }

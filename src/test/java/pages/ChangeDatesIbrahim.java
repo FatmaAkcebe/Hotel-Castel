@@ -32,15 +32,25 @@ public class ChangeDatesIbrahim extends ReusableMethods {
     @FindBy(xpath = "(//*[@id='multidate'])[1]")
     public WebElement multidate;
 
-    @FindBy(xpath = "(//*[@class='today active start-date active end-date in-range available'])[1]")
+    @FindBy(xpath = "(//td[@class='today weekend active start-date active end-date in-range available'])[1]")
     public WebElement today;
-
-    @FindBy(xpath = "(//td[@class='weekend available in-range'])[1]")
-    public WebElement weekend;
 
     @FindBy(xpath = "(//button[text()='Check Availability'])[1]")
     public WebElement checkAvailability;
 
     @FindBy(xpath = "(//table[@class='table-condensed'])[1]/tbody/tr/td")
     public List<WebElement> multiDateList;
+
+    @FindBy(xpath = "//*[@class='next available']")
+    public WebElement nextAvailable;
+
+    @FindBy(css = "input[name='search_start_date']")
+    public WebElement checkIn;
+
+    @FindBy(css = "input[name='search_end_date']")
+    public WebElement checkOut;
+
+    @FindBy(xpath = "(//button[@name='check_availability'])[2]")
+    public WebElement checkAvailabilityButton;
+
 }
