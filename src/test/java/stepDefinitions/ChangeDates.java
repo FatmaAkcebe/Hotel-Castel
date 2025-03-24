@@ -65,6 +65,8 @@ public class ChangeDates {
     @Then("New rooms should come")
     public void newRoomsShouldCome() {
         // Yeni odalar geliyor mu kontrol et
+        dc.myClick(dc.checkAvailabilityButton);
+        dc.wait.until(ExpectedConditions.visibilityOf(dc.newRooms));
         Assert.assertTrue(dc.newRooms.isDisplayed());
     }
 
