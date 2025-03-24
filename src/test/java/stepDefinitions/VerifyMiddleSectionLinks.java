@@ -34,8 +34,8 @@ public class VerifyMiddleSectionLinks {
         List<WebElement> images = Arrays.asList(element.anfahrtImg, element.uberUnsImg, element.aktivitatenImg);
 
         for (int i = 0; i < sections.size(); i++) {
-            Assert.assertTrue(sections.get(i).isDisplayed(), "Section is not displayed!");
-            Assert.assertTrue(images.get(i).isDisplayed(), "Image is not displayed!");
+            Assert.assertTrue(sections.get(i).isDisplayed());
+            Assert.assertTrue(images.get(i).isDisplayed());
         }
     }
 
@@ -48,7 +48,7 @@ public class VerifyMiddleSectionLinks {
     @Then("The user should be redirected to the Anfahrt page")
     public void theUserShouldBeRedirectedToTheAnfahrtPage() {
         element.verifyURL(ConfigReader.getProperty("anfahrtURL"));
-        Assert.assertTrue(element.anfahrtPageContent.isDisplayed(), "Page content is not displayed!");
+        Assert.assertTrue(element.anfahrtPageContent.isDisplayed());
     }
 
     @When("The user clicks on the Über uns link in the middle section")
@@ -61,7 +61,7 @@ public class VerifyMiddleSectionLinks {
     @Then("The user should be redirected to the Über uns page")
     public void theUserShouldBeRedirectedToTheUberUnsPage() {
         element.verifyURL(ConfigReader.getProperty("uberUnsURL"));
-        Assert.assertTrue(element.uberUnsPageContent.isDisplayed(), "Page content is not displayed!");
+        Assert.assertTrue(element.uberUnsPageContent.isDisplayed());
     }
 
     @When("The user clicks on the Aktivitäten link in the middle section")
@@ -74,7 +74,7 @@ public class VerifyMiddleSectionLinks {
     @Then("The user should be redirected to the Aktivitäten page")
     public void theUserShouldBeRedirectedToTheAktivitatenPage() {
         element.verifyURL(ConfigReader.getProperty("aktivitatenURL"));
-        Assert.assertTrue(element.aktivitatenPageContent.isDisplayed(), "Page content is not displayed!");
+        Assert.assertTrue(element.aktivitatenPageContent.isDisplayed());
     }
 
     @And("The user navigates back to the homepage")
