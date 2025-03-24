@@ -39,10 +39,7 @@ public class CurrencySelection {
             cs.myClick(randomCurrency);
 
             cs.wait.until(ExpectedConditions.visibilityOf(cs.preisVonText));
-            System.out.println(cs.preisVonText.getText());
-
             cs.wait.until(ExpectedConditions.visibilityOf(cs.currencyUnit));
-            System.out.println(cs.currencyUnit.getText());
 
             Assert.assertTrue(cs.preisVonText.getText().contains(cs.currencyUnit.getText()));
             System.out.println(cs.preisVonText.getText().contains(cs.currencyUnit.getText()));
