@@ -13,15 +13,13 @@ public class DisplayTheIntroduction {
     public void theUserScrollsDownToTheIntroduction() {
         element.scrollToElement(element.willkommenBeimTitle);
         element.wait.until(ExpectedConditions.visibilityOf(element.willkommenBeimTitle));
-        Assert.assertTrue(element.willkommenBeimTitle.isDisplayed(),
-                "Introduction section is not displayed!");
+        Assert.assertTrue(element.willkommenBeimTitle.isDisplayed());
     }
 
     @Then("The Willkommen Beim field should be visible in the introduction section")
     public void theWillkommenBeimfieldShouldBeVisible() {
         element.wait.until(ExpectedConditions.visibilityOf(element.castleHotelRastattTitle));
-        Assert.assertTrue(element.willkommenBeimTitle.isDisplayed(),
-                "Willkommen beim field is not displayed!");
+        Assert.assertTrue(element.willkommenBeimTitle.isDisplayed());
     }
 
     @And("The content of the Willkommen Beim field should contain the expected text")
@@ -31,7 +29,6 @@ public class DisplayTheIntroduction {
         String expectedContent = "Das Castle Hotel Rastatt verbindet Komfort  mit persönlichem Service";
         String actualContent = element.introTextContent.getText();
 
-        Assert.assertTrue(actualContent.contains(expectedContent),
-                "Expected text not found in the introduction section!");
+        Assert.assertTrue(actualContent.contains(expectedContent));
     }
 }
