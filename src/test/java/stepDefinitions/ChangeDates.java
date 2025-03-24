@@ -41,6 +41,7 @@ public class ChangeDates {
         String formattedDate = futureDate.format(formatter);
 
         // İnput'daki eski tarihi sil
+
         dc.checkIn.sendKeys(Keys.CONTROL, "a", Keys.BACK_SPACE);
         // Stringe çevirdiğimiz tarihi içine ata
         dc.checkIn.sendKeys(formattedDate);
