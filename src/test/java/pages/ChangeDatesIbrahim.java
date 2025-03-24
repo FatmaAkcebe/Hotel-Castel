@@ -53,4 +53,7 @@ public class ChangeDatesIbrahim extends ReusableMethods {
     @FindBy(xpath = "(//button[@name='check_availability'])[2]")
     public WebElement checkAvailabilityButton;
 
+    @FindBy(xpath = "//div[@class='availability_list']")
+    public WebElement roomPhotos;
+
 }
