@@ -29,7 +29,7 @@ public class ChangeDates {
         dc.myClick(dc.checkIn);
     }
 
-    @And("user changes Check-in date")
+    @And("User selects check-in date")
     public void userChangesCheckInDate() {
         // Bugünün tarihini al
         LocalDate today = LocalDate.now();
@@ -47,7 +47,7 @@ public class ChangeDates {
         dc.checkIn.sendKeys(formattedDate);
     }
 
-    @And("user changes Check-out date")
+    @And("User selects check-out date")
     public void userChangesCheckOutDate() {
         // CheckOut a tıkla
         dc.myClick(dc.checkOut);
@@ -66,5 +66,26 @@ public class ChangeDates {
     public void newRoomsShouldCome() {
         // Yeni odalar geliyor mu kontrol et
         Assert.assertTrue(dc.newRooms.isDisplayed());
+    }
+
+    @And("User selects wrong check-out date")
+    public void userSelectsWrongCheckOutDate() {
+        // CheckOut a tıkla
+        dc.myClick(dc.checkOut);
+        LocalDate today = LocalDate.now();
+        // Geriye doğru bir tarih gir
+        LocalDate futureDate = today.plusDays(randomNumber-4);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        String formattedDate = futureDate.format(formatter);
+
+        dc.checkOut.sendKeys(Keys.CONTROL, "a", Keys.BACK_SPACE);
+
+        dc.checkOut.sendKeys(formattedDate);
+    }
+
+    @Then("New rooms not should come")
+    public void newRoomsNotShouldCome() {
+        // Yeni odalar gelmemeli hata vermeli
+        Assert.assertFalse(dc.newRooms.isDisplayed());
     }
 }
