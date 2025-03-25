@@ -6,14 +6,14 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.JavascriptExecutor;
 import org.testng.Assert;
-import pages.ChangeDatesIbrahim;
+import pages.ChangeDates_POM;
 import utilities.ConfigReader;
 import utilities.GWD;
 import utilities.ReusableMethods;
 
 public class AboutHotel {
     ReusableMethods reusableMethods= new ReusableMethods();
-    ChangeDatesIbrahim dc = new ChangeDatesIbrahim();
+    ChangeDates_POM dc = new ChangeDates_POM();
 
     @When("Click on the About Us link from the menu")
     public void clickOnTheLinkFromTheMenu() {
