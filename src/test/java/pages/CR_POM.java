@@ -14,39 +14,29 @@ public class CR_POM extends ReusableMethods {
         PageFactory.initElements(GWD.getDriver(), this);
     }
 
-  @FindBy(css = "[value='Guests']")
-  public WebElement searchGuest;
+    @FindBy(css = "[value='Guests']")
+    public WebElement searchGuest;
 
-  @FindBy(css = "[class='ion-minus']")
-  public WebElement guestDecreaseButton;
+    @FindBy(css = "[class='ion-minus']")
+    public WebElement guestDecreaseButton;
 
-  @FindBy(css = "[class='ion-plus']")
-  public WebElement guestIncreaseButton;
+    @FindBy(css = "[class='ion-plus']")
+    public WebElement guestIncreaseButton;
 
-@FindBy(xpath = "//input[@id='number']")
-public WebElement guestCountElement ;
+    @FindBy(xpath = "//input[@id='number']")
+    public WebElement guestCountElement;
 
     @FindBy(xpath = "//*[text()='Check Availability']")
     public WebElement checkAvailabilityButton;
 
-@FindBy(xpath = "(//[@id='multidate'])[1]")
-public WebElement multidate;
+    @FindBy(xpath = "(//*[@id='multidate'])[1]")
+    public WebElement multidate;
 
-@FindBy(css = "[class='show-calendar']")
-public WebElement viewCalendar;
-
-@FindBy(xpath = "//td[contains(@class, 'available'")
-public WebElement availableDays;
-
-@FindBy(xpath = "//[contains(@class, 'next')]")
-public WebElement nextMonthButton;
-
-@FindBy(xpath = "//td[contains(@class, 'available') and text()='1']")
-public WebElement firstDay;
+    @FindBy(css = "[class*='show-calendar']")
+    public WebElement viewCalendar;
 
     @FindBy(xpath = "(//table[@class='table-condensed'])[1]/tbody/tr/td[contains(@class, 'available') and not(contains(@class, 'off'))]")
     public List<WebElement> multiDateList;
-
 
     public void clickDay(int day) {
         for (WebElement dayElement : multiDateList) {
