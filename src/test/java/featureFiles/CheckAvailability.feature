@@ -1,10 +1,10 @@
 Feature: Check Room Availability
 
-
   Scenario: User checks room availability
-    Given I am on the hotel booking page
-    When I select check-in date "2025-05-10"
-    And I select check-out date "2025-05-15"
-    And I select "2" guests
-    And I click on "Check Availability" button
-    Then I should see the available rooms
+    Given The user is on the homepage
+    When The user scrolls down to make the date picker visible
+    And The user clicks on the date picker and the date picker opens
+    And Select a check-in and check-out date
+    And The user selects a number of guests
+    When The user clicks the Check Availability button
+    Then The page should open where the list of available rooms is displayed according to the selected date range
