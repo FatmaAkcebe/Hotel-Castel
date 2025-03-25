@@ -1,13 +1,18 @@
 package utilities;
 
+import com.github.javafaker.Faker;
+
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.Locale;
 import java.util.Properties;
 
 public class ConfigReader {
     private static Properties properties = new Properties();
+    static Faker faker = new Faker(new Locale("en-US"));
+
     static {
         try {
             FileInputStream file = new FileInputStream("configuration.properties");
@@ -26,56 +31,60 @@ public class ConfigReader {
         return Integer.parseInt(properties.getProperty(key));
     }
 
-    public static void updateProperty(String keyword, String id) {
+    public static void updateProperty(String keyword) {
 
         switch (keyword) {
-            case "countryID":
-                String countryID = id;
-                properties.setProperty(keyword, countryID);
+            case "firstName":
+                String firstName = "Test"+faker.name().firstName();
+                properties.setProperty(keyword, firstName);
                 break;
-            case "statesID":
-                String statesID = id;
-                properties.setProperty(keyword, statesID);
+            case "lastName":
+                String lastName = "Test"+faker.name().lastName();
+                properties.setProperty(keyword, lastName);
                 break;
-            case "citiesID":
-                String citiesID = id;
-                properties.setProperty(keyword, citiesID);
+            case "email":
+                String email = "Test"+faker.internet().emailAddress();
+                properties.setProperty(keyword, email);
                 break;
-            case "groupID":
-                String groupID = id;
-                properties.setProperty(keyword, groupID);
+            case "phone":
+                String phone = "Test"+faker.phoneNumber().cellPhone();
+                properties.setProperty(keyword, phone);
                 break;
-            case "student1":
-                String student1 = id;
-                properties.setProperty(keyword, student1);
+            case "zipCode":
+                String zipCode = faker.address().zipCode();
+                properties.setProperty(keyword, zipCode);
                 break;
-            case "student2":
-                String student2 = id;
-                properties.setProperty(keyword, student2);
+            case "address1":
+                String address1 = faker.address().fullAddress();
+                properties.setProperty(keyword, address1);
                 break;
-            case "student3":
-                String student3 = id;
-                properties.setProperty(keyword, student3);
+            case "address2":
+                String address2 = faker.address().secondaryAddress();
+                properties.setProperty(keyword, address2);
                 break;
-            case "student4":
-                String student4 = id;
-                properties.setProperty(keyword, student4);
+            case "city":
+                String city = faker.address().city();
+                properties.setProperty(keyword, city);
                 break;
-            case "gradingID":
-                String gradingID = id;
-                properties.setProperty(keyword, gradingID);
+            case "gastName":
+                String gastName = "Test"+faker.name().fullName();
+                properties.setProperty(keyword, gastName);
                 break;
-            case "educationID":
-                String educationID = id;
-                properties.setProperty(keyword, educationID);
+            case "orderNumber":
+                String orderNumber = faker.number().digits(10);
+                properties.setProperty(keyword, orderNumber);
                 break;
-            case "javaID":
-                String javaID = id;
-                properties.setProperty(keyword, javaID);
+            case "vatID":
+                String vatID = faker.idNumber().valid();
+                properties.setProperty(keyword, vatID);
                 break;
-            case "incidentID":
-                String incidentID = id;
-                properties.setProperty(keyword, incidentID);
+            case "costCenter":
+                String costCenter = faker.company().industry();
+                properties.setProperty(keyword, costCenter);
+                break;
+            case "referans":
+                String referans = faker.lorem().word();
+                properties.setProperty(keyword, referans);
                 break;
         }
 
