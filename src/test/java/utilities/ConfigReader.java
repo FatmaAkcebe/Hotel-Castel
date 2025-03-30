@@ -51,7 +51,7 @@ public class ConfigReader {
                 properties.setProperty(keyword, phone);
                 break;
             case "zipCode":
-                String zipCode = faker.address().zipCode();
+                String zipCode = faker.number().digits(4);
                 properties.setProperty(keyword, zipCode);
                 break;
             case "address1":
