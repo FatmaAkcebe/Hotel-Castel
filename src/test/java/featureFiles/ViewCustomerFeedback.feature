@@ -1,8 +1,10 @@
-Feature: View Customers Feedback
+Feature: Comment Navigation
+  Users should be able to navigate between comments either manually by clicking or automatically after a period of time.
 
-  Scenario: Display and store customer reviews
-    Given The user is on the customer reviews page
-    When The system loads and displays reviews with star ratings
-    Then Reviews must be legible, well-formatted, and accessible
-    And The database must store and update reviews properly
-    And The user must be able to evaluate feedback easily
+  Background:
+    Given The user navigates to the Hotel Castle website
+
+  Scenario: Manual comment transition
+    When The user scrolls down to make the comments section visible
+    Then The comments should be visible
+    When The user clicks on each comment point and the corresponding comment should be displayed
