@@ -4,14 +4,14 @@ import io.cucumber.java.en.*;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
-import pages.HotelInformation;
+import pages.HotelInformation_POM;
 import utilities.ConfigReader;
 import utilities.GWD;
 
 import java.util.*;
 
 public class CheckHotelInformation {
-    HotelInformation ch = new HotelInformation();
+    HotelInformation_POM ch = new HotelInformation_POM();
 
     @Given("The user is on to the Hotel Castle homepage")
     public void theUserIsOnToTheHotelCastleHomepage() {
