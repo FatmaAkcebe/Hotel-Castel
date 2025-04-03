@@ -8,9 +8,9 @@ import utilities.ReusableMethods;
 
 import java.util.List;
 
-public class CurrencySelect extends ReusableMethods {
+public class CurrencySelect_POM extends ReusableMethods {
 
-    public CurrencySelect() {
+    public CurrencySelect_POM() {
         PageFactory.initElements(GWD.getDriver(), this);
     }
 

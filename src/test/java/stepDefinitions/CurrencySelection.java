@@ -4,12 +4,12 @@ import io.cucumber.java.en.*;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
-import pages.CurrencySelect;
+import pages.CurrencySelect_POM;
 
 import java.util.Random;
 
 public class CurrencySelection {
-    CurrencySelect cs = new CurrencySelect();
+    CurrencySelect_POM cs = new CurrencySelect_POM();
     Random random = new Random();
 
     @When("The user displays the currency section located at the top-right corner of the booking page")
