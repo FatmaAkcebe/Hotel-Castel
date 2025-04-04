@@ -42,7 +42,6 @@ public class CurrencySelection {
             cs.wait.until(ExpectedConditions.visibilityOf(cs.currencyUnit));
 
             Assert.assertTrue(cs.preisVonText.getText().contains(cs.currencyUnit.getText()));
-            System.out.println(cs.preisVonText.getText().contains(cs.currencyUnit.getText()));
         }
     }
 }

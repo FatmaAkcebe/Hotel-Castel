@@ -10,5 +10,4 @@ Feature:Hotel Room Total Check
     Then The reservation details on the information filling screen should match the selected details
     And The user fills out the form with the contact information
     Then The user clicks on the confirmation button and verifies the confirmation message
-    When The user checks the details and price of the selected room
-    Then The user checks if the total price updates correctly with added packages
+    And The user checks if the total price updates correctly with added packages

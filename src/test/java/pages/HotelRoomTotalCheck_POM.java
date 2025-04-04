@@ -15,15 +15,15 @@ public class HotelRoomTotalCheck_POM extends ReusableMethods {
     @FindBy(xpath = "//span[@class='box']")
     public WebElement checkBoxBreakfast;
 
-    @FindBy(xpath = "//div[@class='price']")
+    @FindBy(css = "[class='price']")
     public WebElement breakfastPrice;
 
     @FindBy(css = "button[type='submit']")
     public WebElement summeButton;
 
-    @FindBy(xpath = "//td[@class='total_column']")
-    public WebElement roomsPrices;
-
     @FindBy(xpath = "(//p[@class='grand_total'])[6]")
     public WebElement gesamt;
+
+    @FindBy(xpath = "//div[contains(@class, '-md-block')]//td[@class='total_column']")
+    public WebElement roomPrices;
 }
