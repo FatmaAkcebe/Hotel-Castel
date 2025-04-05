@@ -33,7 +33,6 @@ public class HotelRoomTotalCheck {
         }
 
         double totalPrice = price + breakfastPrice;
-        String formattedPrice = String.format("%.1f", totalPrice).replace(".", ",");
 
         hr.myClick(hr.summeButton);
         hr.wait.until(ExpectedConditions.visibilityOf(hr.gesamt));
@@ -43,9 +42,6 @@ public class HotelRoomTotalCheck {
             gesamt = Double.parseDouble(gesamtStr.replace(",", "."));
         }
 
-        double gesamtDbl = gesamt;
-        String gesamtPrice = String.format("%.1f", gesamtDbl).replace(".", ",");
-
-        Assert.assertTrue(formattedPrice.contains(gesamtPrice));
+        Assert.assertEquals(totalPrice, gesamt);
     }
 }
