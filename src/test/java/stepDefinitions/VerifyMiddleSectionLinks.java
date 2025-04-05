@@ -17,6 +17,7 @@ public class VerifyMiddleSectionLinks {
 
     @Given("The user is on the homepage")
     public void theUserIsOnTheHomepage() {
+
         String homepageURL = ConfigReader.getProperty("homepageURL");
         GWD.getDriver().navigate().to(homepageURL);
         element.verifyURL(homepageURL);
