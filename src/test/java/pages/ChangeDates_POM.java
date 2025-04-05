@@ -8,8 +8,8 @@ import utilities.ReusableMethods;
 
 import java.util.List;
 
-public class ChangeDatesIbrahim extends ReusableMethods {
-    public ChangeDatesIbrahim() {
+public class ChangeDates_POM extends ReusableMethods {
+    public ChangeDates_POM() {
 
         PageFactory.initElements(GWD.getDriver(), this);
     }
@@ -56,4 +56,6 @@ public class ChangeDatesIbrahim extends ReusableMethods {
     @FindBy(xpath = "//div[@class='availability_list']")
     public WebElement newRooms;
 
+    @FindBy(className = "message_container")
+    public WebElement message;
 }
