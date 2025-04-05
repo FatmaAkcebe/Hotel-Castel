@@ -12,12 +12,13 @@ public class VerifyReservationDetails {
     VerifyReservationDetails_POM element = new VerifyReservationDetails_POM();
 
     private final String expectedRoomType = ConfigReader.getProperty("roomTitle");
-    private final String expectedGuestName = ConfigReader.getProperty("firstName") + " " + ConfigReader.getProperty("lastName");
     private final String expectedAdults = ConfigReader.getProperty("adults");
     private final String expectedChildren = ConfigReader.getProperty("children");
     private final String expectedCheckInDate = ConfigReader.getProperty("checkInDate");
     private final String expectedCheckOutDate = ConfigReader.getProperty("checkOutDate");
     private final String expectedTotalPrice = ConfigReader.getProperty("price").replaceAll("[^0-9,]", "");
+    private final String expectedGuestName = ConfigReader.getProperty("firstName") + " " + ConfigReader.getProperty("lastName");
+
 
     @When("The user reaches the reservation details page")
     public void theUserReachesTheReservationDetailsPage() {
@@ -34,25 +35,26 @@ public class VerifyReservationDetails {
         ConfigReader.saveToConfig("reservationNumber", actualResNumber);
         Assert.assertFalse(actualResNumber.isEmpty());
 
-        verifyDetails(expectedRoomType, element.roomType);
-        verifyDetails(expectedGuestName, element.guestName);
-        verifyDetails(expectedAdults, element.adult);
-        verifyDetails(expectedChildren, element.children);
-        verifyDetails(expectedCheckInDate, element.checkInDate);
-        verifyDetails(expectedCheckOutDate, element.checkOutDate);
+        verifyDetails("Adults", expectedAdults, element.adult);
+        verifyDetails("Children", expectedChildren, element.children);
+        verifyDetails("Room Type", expectedRoomType, element.roomType);
+        verifyDetails("Guest Name", expectedGuestName, element.guestName);
+        verifyDetails("Check-In Date", expectedCheckInDate, element.checkInDate);
+        verifyDetails("Check-Out Date", expectedCheckOutDate, element.checkOutDate);
 
         String actualTotalPrice = element.getTextUsingJS(element.inTotal).replaceAll("[^0-9,]", "");
-        logComparison(expectedTotalPrice, actualTotalPrice);
+        logVerificationInfo("Total Price", expectedTotalPrice, actualTotalPrice);
         Assert.assertEquals(actualTotalPrice, expectedTotalPrice);
     }
 
-    private void verifyDetails(String expectedText, WebElement webElement) {
+    private void verifyDetails(String fieldName, String expectedText, WebElement webElement) {
         String actualText = element.getTextUsingJS(webElement).trim();
-        logComparison(expectedText, actualText);
+        logVerificationInfo(fieldName, expectedText, actualText);
         Assert.assertEquals(actualText, expectedText);
     }
 
-    private void logComparison(String expected, String actual) {
-        System.out.printf("%-40s%-40s%n", "Expected Info= " + expected, "Actual Info= " + actual);
+    private void logVerificationInfo(String fieldName, String expected, String actual) {
+        System.out.println(" Expected " + fieldName + " = " + expected);
+        System.out.println(" Actual " + fieldName + " = " + actual);
     }
 }
