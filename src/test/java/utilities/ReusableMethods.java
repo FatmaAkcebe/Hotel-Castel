@@ -1,8 +1,10 @@
 package utilities;
 
 import org.openqa.selenium.*;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
@@ -10,6 +12,9 @@ import java.awt.*;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
 import java.time.Duration;
+import java.time.LocalDate;
+import java.util.List;
+import java.util.Random;
 
 public class ReusableMethods {
     public WebDriverWait wait = new WebDriverWait(GWD.getDriver(), Duration.ofSeconds(ConfigReader.getIntProperty("explicit.wait")));
@@ -19,7 +24,7 @@ public class ReusableMethods {
         element.click();
     }
 
-    public void clickAndEsc(WebElement clickElement,WebElement assertElement){
+    public void clickAndEsc(WebElement clickElement, WebElement assertElement) {
         wait.until(ExpectedConditions.visibilityOf(clickElement));
         wait.until(ExpectedConditions.elementToBeClickable(clickElement));
         jsClick(clickElement);
@@ -35,7 +40,7 @@ public class ReusableMethods {
         element.sendKeys(text);
     }
 
-    public void hoverOver(WebElement element){
+    public void hoverOver(WebElement element) {
         wait.until(ExpectedConditions.visibilityOf(element));
         new Actions(GWD.getDriver()).moveToElement(element).perform();
     }
@@ -45,9 +50,9 @@ public class ReusableMethods {
         js.executeScript("arguments[0].scrollIntoView();", elements);
     }
 
-    public void robotExecute(int number){
+    public void robotExecute(int number) {
         try {
-            Robot robot =new Robot();
+            Robot robot = new Robot();
             for (int i = 0; i <= number; i++) {
                 robot.keyPress(KeyEvent.VK_TAB);
                 robot.keyRelease(KeyEvent.VK_TAB);
@@ -60,15 +65,15 @@ public class ReusableMethods {
         }
     }
 
-    public void uploadFilePath(String path){
+    public void uploadFilePath(String path) {
         Robot robot;
         try {
-            robot=new Robot();
+            robot = new Robot();
         } catch (AWTException e) {
             throw new RuntimeException(e);
         }
 
-        StringSelection filePath=new StringSelection(path);
+        StringSelection filePath = new StringSelection(path);
         Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filePath, null);
         Wait(1);
 
@@ -90,7 +95,7 @@ public class ReusableMethods {
         new Actions(GWD.getDriver()).sendKeys(Keys.ESCAPE).build().perform();
     }
 
-    public void verifyEqualsText(WebElement element,String value){
+    public void verifyEqualsText(WebElement element, String value) {
         wait.until(ExpectedConditions.textToBePresentInElement(element, value));
         Assert.assertTrue(element.getText().toLowerCase().equals(value.toLowerCase()));
         new Actions(GWD.getDriver()).sendKeys(Keys.ESCAPE).build().perform();
@@ -102,10 +107,10 @@ public class ReusableMethods {
         js.executeScript("arguments[0].click();", element);
     }
 
-    public String jsColor(String value,WebElement element){
-        JavascriptExecutor js=(JavascriptExecutor) GWD.getDriver();
+    public String jsColor(String value, WebElement element) {
+        JavascriptExecutor js = (JavascriptExecutor) GWD.getDriver();
         String backgroundColor = (String) js.executeScript(
-                "return getComputedStyle(arguments[0]).getPropertyValue('"+value+"');",
+                "return getComputedStyle(arguments[0]).getPropertyValue('" + value + "');",
                 element);
         return backgroundColor;
     }
@@ -122,20 +127,19 @@ public class ReusableMethods {
         }
     }
 
-public void closeWindow() {
-    try {
-        Robot robot = new Robot();
+    public void closeWindow() {
+        try {
+            Robot robot = new Robot();
 
-        robot.keyPress(KeyEvent.VK_ALT);
-        robot.keyPress(KeyEvent.VK_F4);
+            robot.keyPress(KeyEvent.VK_ALT);
+            robot.keyPress(KeyEvent.VK_F4);
 
-        robot.keyRelease(KeyEvent.VK_F4);
-        robot.keyRelease(KeyEvent.VK_ALT);
-    } catch (AWTException e) {
-        throw new RuntimeException(e);
+            robot.keyRelease(KeyEvent.VK_F4);
+            robot.keyRelease(KeyEvent.VK_ALT);
+        } catch (AWTException e) {
+            throw new RuntimeException(e);
+        }
     }
-
-}
 
     public String getCurrentURL() {
         return GWD.getDriver().getCurrentUrl();
@@ -150,28 +154,28 @@ public void closeWindow() {
         String actualUrl = getCurrentURL();
         Assert.assertEquals(actualUrl, expectedUrl, "Redirection failed!");
     }
-    public void navigateToReviewsPage() {
-        System.out.println("Navigating to the customer reviews page...");
 
+    public static int[] generateCheckInOutDays(LocalDate today) {
+        int todayDay = today.getDayOfMonth();
+        int maxDaysInMonth = today.lengthOfMonth();
+
+        Random random = new Random();
+        int checkInDay = todayDay + random.nextInt(maxDaysInMonth - todayDay + 1);
+
+        int checkOutDay = checkInDay + 1;
+
+        if (checkOutDay > maxDaysInMonth) {
+            checkOutDay = 1;
+        }
+        return new int[]{checkInDay, checkOutDay};
     }
 
-    public void loadReviews() {
-        System.out.println("Loading and displaying reviews with star ratings...");
-
+    public void selectMenu(WebElement dropdownMenu, List<WebElement>list) {
+        Select select = new Select(dropdownMenu);
+        wait.until(ExpectedConditions.elementToBeClickable(dropdownMenu));
+        dropdownMenu.click();
+        wait.until(ExpectedConditions.visibilityOfAllElements(list));
+        select.selectByIndex(randomGenerator(list.size()));
     }
 
-    public void areReviewsLegible() {
-        System.out.println("Checking if reviews are legible, well-formatted, and accessible...");
-
-    }
-
-    public void isDatabaseUpdated() {
-        System.out.println("Verifying if the database properly stores and updates reviews...");
-
-    }
-
-    public void canUserEvaluateFeedback() {
-        System.out.println("Checking if users can evaluate feedback easily...");
-
-    }
 }

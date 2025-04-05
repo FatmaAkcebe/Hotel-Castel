@@ -17,26 +17,33 @@ import java.time.format.DateTimeFormatter;
 public class CheckAvailableRooms {
 
     CheckAvailableRooms_POM element = new CheckAvailableRooms_POM();
+    private LocalDate checkInDate;
+    private LocalDate checkOutDate;
 
     @Given("The user is on the Reservation page")
     public void theUserIsOnTheReservationPage() {
         GWD.getDriver().get("https://hotel-castle-rastatt.de/");
         element.myClick(element.bookNowButton);
         element.wait.until(ExpectedConditions.visibilityOf(element.checkAvailabilityButton));
+        ReservationInfoCheck.setCheckAvailableRooms(this);
     }
 
     @When("The user selects a check-in date")
     public void theUserSelectsACheckInDate() {
         element.myClick(element.searchStartDate);
         element.searchStartDate.sendKeys(Keys.CONTROL, "a", Keys.BACK_SPACE);
-        element.searchStartDate.sendKeys(getDate(2));
+        String checkIn = LocalDate.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+        element.searchStartDate.sendKeys(checkIn);
+        checkInDate = LocalDate.parse(checkIn, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
     }
 
     @And("The user selects a check-out date later than the check-in date")
     public void theUserSelectsACheckOutDateLaterThanTheCheckInDate() {
         element.myClick(element.searchEndDate);
         element.searchEndDate.sendKeys(Keys.CONTROL, "a", Keys.BACK_SPACE);
-        element.searchEndDate.sendKeys(getDate(4));
+        String checkOut = getDate(2);
+        element.searchEndDate.sendKeys(checkOut);
+        checkOutDate = LocalDate.parse(checkOut, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
     }
 
     @Then("A list of available rooms for the selected period should be displayed")
@@ -53,9 +60,11 @@ public class CheckAvailableRooms {
             invalidDate = element.errorMsg.isDisplayed();
             if (invalidDate) {
                 element.searchStartDate.sendKeys(Keys.CONTROL, "a", Keys.BACK_SPACE);
-                element.searchStartDate.sendKeys(getDate(4));
+                checkInDate = checkInDate.plusDays(2);
+                element.searchStartDate.sendKeys(checkInDate.format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
                 element.searchEndDate.sendKeys(Keys.CONTROL, "a", Keys.BACK_SPACE);
-                element.searchEndDate.sendKeys(getDate(6));
+                checkOutDate = checkOutDate.plusDays(4);
+                element.searchEndDate.sendKeys(checkOutDate.format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
             }
         } while (invalidDate);
     }
@@ -64,7 +73,6 @@ public class CheckAvailableRooms {
     public void eachRoomShouldDisplayItsType() {
         for (WebElement roomTitle : element.roomTitles) {
             Assert.assertTrue(roomTitle.isDisplayed());
-            System.out.println(roomTitle.getText());
         }
     }
 
@@ -72,8 +80,15 @@ public class CheckAvailableRooms {
     public void eachRoomShouldDisplayItsPricePerNight() {
         for (WebElement roomPrice : element.roomPrices) {
             Assert.assertTrue(roomPrice.isDisplayed());
-            System.out.println(roomPrice.getText());
         }
+    }
+
+    public LocalDate getCheckInDate() {
+        return checkInDate;
+    }
+
+    public LocalDate getCheckOutDate() {
+        return checkOutDate;
     }
 
     private String getDate(int daysAdd) {

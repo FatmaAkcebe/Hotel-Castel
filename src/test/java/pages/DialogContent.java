@@ -164,6 +164,7 @@ public class DialogContent extends ReusableMethods {
     @FindBy(xpath = "//div[@class='owl-dots']/div[3]")
     public WebElement  thirdDot;
 
+
     @FindBy(xpath = "(//*[@class= 'testimonial-name'])[3]")
     public WebElement firstComment;
 

@@ -8,9 +8,9 @@ import utilities.ReusableMethods;
 
 import java.util.List;
 
-public class HotelInformation extends ReusableMethods {
+public class HotelInformation_POM extends ReusableMethods {
 
-    public HotelInformation() {
+    public HotelInformation_POM() {
         PageFactory.initElements(GWD.getDriver(), this);
     }
 
