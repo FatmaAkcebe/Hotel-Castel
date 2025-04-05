@@ -3,7 +3,6 @@ package utilities;
 import com.github.javafaker.Faker;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Locale;
@@ -12,10 +11,11 @@ import java.util.Properties;
 public class ConfigReader {
     private static Properties properties = new Properties();
     static Faker faker = new Faker(new Locale("en-US"));
+    private static final String configFilePath = "configuration.properties";
 
     static {
         try {
-            FileInputStream file = new FileInputStream("configuration.properties");
+            FileInputStream file = new FileInputStream(configFilePath);
             properties.load(file);
             file.close();
         } catch (IOException e) {
@@ -35,19 +35,19 @@ public class ConfigReader {
 
         switch (keyword) {
             case "firstName":
-                String firstName = "Test"+faker.name().firstName();
+                String firstName = "Test" + faker.name().firstName();
                 properties.setProperty(keyword, firstName);
                 break;
             case "lastName":
-                String lastName = "Test"+faker.name().lastName();
+                String lastName = "Test" + faker.name().lastName();
                 properties.setProperty(keyword, lastName);
                 break;
             case "email":
-                String email = "Test"+faker.internet().emailAddress();
+                String email = "Test" + faker.internet().emailAddress();
                 properties.setProperty(keyword, email);
                 break;
             case "phone":
-                String phone = "Test"+faker.phoneNumber().cellPhone();
+                String phone = "Test" + faker.phoneNumber().cellPhone();
                 properties.setProperty(keyword, phone);
                 break;
             case "zipCode":
@@ -67,7 +67,7 @@ public class ConfigReader {
                 properties.setProperty(keyword, city);
                 break;
             case "gastName":
-                String gastName = "Test"+faker.name().fullName();
+                String gastName = "Test" + faker.name().fullName();
                 properties.setProperty(keyword, gastName);
                 break;
             case "orderNumber":
@@ -87,18 +87,18 @@ public class ConfigReader {
                 properties.setProperty(keyword, referans);
                 break;
         }
+    }
 
-        FileOutputStream outputFile = null;
-        try {
-            outputFile = new FileOutputStream("configuration.properties");
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
-        }
-        try {
-            properties.store(outputFile, null);
-            outputFile.close();
+    public static void saveToConfig(String key, String value) {
+        properties.setProperty(key, value);
+        saveProperties();
+    }
+
+    private static void saveProperties() {
+        try (FileOutputStream outputFile = new FileOutputStream(configFilePath)) {
+            properties.store(outputFile, "Updated Dynamic Properties");
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            throw new RuntimeException("Error while updating configuration.properties file", e);
         }
     }
 }

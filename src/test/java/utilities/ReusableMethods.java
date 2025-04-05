@@ -1,7 +1,6 @@
 package utilities;
 
 import org.openqa.selenium.*;
-import org.openqa.selenium.Dimension;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
@@ -178,4 +177,8 @@ public class ReusableMethods {
         select.selectByIndex(randomGenerator(list.size()));
     }
 
+    public String getTextUsingJS(WebElement element) {
+        JavascriptExecutor js = (JavascriptExecutor) GWD.getDriver();
+        return (String) js.executeScript("return arguments[0]?.textContent.trim();", element);
+    }
 }
