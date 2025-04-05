@@ -31,8 +31,8 @@ public class VerifyReservationDetails {
     @Then("The reservation details on the page should match the previously entered information")
     public void theReservationDetailsShouldMatchThePreviousInfo() {
         String actualResNumber = element.resNumber.getText().trim();
-        Assert.assertNotNull(actualResNumber);
-        Assert.assertEquals(actualResNumber, element.resNumber.getText().trim());
+        ConfigReader.saveToConfig("reservationNumber", actualResNumber);
+        Assert.assertFalse(actualResNumber.isEmpty());
 
         verifyDetails(expectedRoomType, element.roomType);
         verifyDetails(expectedGuestName, element.guestName);
@@ -42,7 +42,7 @@ public class VerifyReservationDetails {
         verifyDetails(expectedCheckOutDate, element.checkOutDate);
 
         String actualTotalPrice = element.getTextUsingJS(element.inTotal).replaceAll("[^0-9,]", "");
-        logComparison(expectedTotalPrice,actualTotalPrice);
+        logComparison(expectedTotalPrice, actualTotalPrice);
         Assert.assertEquals(actualTotalPrice, expectedTotalPrice);
     }
 
@@ -51,8 +51,8 @@ public class VerifyReservationDetails {
         logComparison(expectedText, actualText);
         Assert.assertEquals(actualText, expectedText);
     }
+
     private void logComparison(String expected, String actual) {
-        System.out.printf("%-40s%-40s%n", "Expected Info:["
-                + expected + "]", "Actual Info:["
-                + actual + "]");    }
+        System.out.printf("%-40s%-40s%n", "Expected Info= " + expected, "Actual Info= " + actual);
+    }
 }

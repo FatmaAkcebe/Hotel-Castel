@@ -17,7 +17,6 @@ public class VerifyMiddleSectionLinks {
 
     @Given("The user is on the homepage")
     public void theUserIsOnTheHomepage() {
-
         String homepageURL = ConfigReader.getProperty("homepageURL");
         GWD.getDriver().navigate().to(homepageURL);
         element.verifyURL(homepageURL);
@@ -31,8 +30,15 @@ public class VerifyMiddleSectionLinks {
 
     @Then("The user should see the Anfahrt, Über uns and Aktivitäten sections")
     public void theUserShouldSeeTheAnfahrtUberUnsAndAktivitatenSections() {
-        List<WebElement> sections = Arrays.asList(element.midSectionAnfahrt, element.midSectionUberUns, element.midSectionAktivitaten);
-        List<WebElement> images = Arrays.asList(element.anfahrtImg, element.uberUnsImg, element.aktivitatenImg);
+        List<WebElement> sections = Arrays.asList(
+                element.midSectionAnfahrt,
+                element.midSectionUberUns,
+                element.midSectionAktivitaten);
+
+        List<WebElement> images = Arrays.asList(
+                element.anfahrtImg,
+                element.uberUnsImg,
+                element.aktivitatenImg);
 
         for (int i = 0; i < sections.size(); i++) {
             Assert.assertTrue(sections.get(i).isDisplayed());
