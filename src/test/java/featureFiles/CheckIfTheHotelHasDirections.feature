@@ -4,4 +4,3 @@ Feature: Check if the hotel has directions
     Given Navigate to hootelCastle
     When The user Check the description of the hotel's location.
     Then The user Check the hotel's activity information
-
