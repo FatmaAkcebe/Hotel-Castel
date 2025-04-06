@@ -7,4 +7,3 @@ Feature: Check Available Rooms by Date
     Then A list of available rooms for the selected period should be displayed
     And Each room should display its type
     And Each room should display its price per night
-    

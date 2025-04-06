@@ -5,12 +5,11 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utilities.GWD;
 import utilities.ReusableMethods;
-import java.time.LocalDate;
-import java.util.List;
-import java.util.Random;
 
-public class CR_POM extends ReusableMethods {
-    public CR_POM() {
+import java.util.List;
+
+public class CheckAvailability_POM extends ReusableMethods {
+    public CheckAvailability_POM() {
         PageFactory.initElements(GWD.getDriver(), this);
     }
 
