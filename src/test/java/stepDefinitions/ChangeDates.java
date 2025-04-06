@@ -14,16 +14,13 @@ import java.util.Set;
 
 public class ChangeDates {
     ChangeDates_POM dc = new ChangeDates_POM();
-    // 1 ile 19 arası random sayı üret.
+
     int randomNumber = (int)(Math.random() * (20 - 1 + 1)) + 1;
-    // Bugünün tarihini al
     LocalDate today = LocalDate.now();
-    // Bugünden random bir şekilde başka tarihe ilerle
     LocalDate futureDate = today.plusDays(randomNumber);
-    // Belirlenen Tarihi "dd/MM/yyyy" formatına çevir
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
-    @When("select check-in and check out dates")
+    @When("The users select the check-in and check-out dates")
     public void selectCheckInAndCheckOutDates() {
         dc.myClick(dc.checkAvailability);
         Set<String> windowHandles = GWD.getDriver().getWindowHandles();
@@ -33,32 +30,26 @@ public class ChangeDates {
         dc.myClick(dc.checkIn);
     }
 
-    @And("User selects check-in date")
+    @And("The users select the check-in date")
     public void userChangesCheckInDate() {
         String formattedDate = futureDate.format(formatter);
-        // İnput'daki eski tarihi sil
         dc.checkIn.sendKeys(Keys.CONTROL, "a", Keys.BACK_SPACE);
-        // Stringe çevirdiğimiz tarihi içine ata
         dc.checkIn.sendKeys(formattedDate);
     }
 
-    @And("User selects check-out date")
+    @And("The users select the check-out date")
     public void userChangesCheckOutDate() {
-        // CheckOut a tıkla
         dc.myClick(dc.checkOut);
-        // Yukarıda seçtiğimiz tarihin 2 gün ilerisine git
         futureDate = today.plusDays(randomNumber+2);
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         String formattedDate = futureDate.format(formatter);
 
         dc.checkOut.sendKeys(Keys.CONTROL, "a", Keys.BACK_SPACE);
-        // 2 Gün ilerisi olarak seçtiğimiz tarihi CheckOut a ata
         dc.checkOut.sendKeys(formattedDate);
     }
 
-    @Then("New rooms should come")
+    @Then("New rooms should be displayed")
     public void newRoomsShouldCome() {
-        // Yeni odalar geliyor mu kontrol et
         boolean invalidDate;
 
         do {
@@ -81,10 +72,8 @@ public class ChangeDates {
 
     @And("User selects wrong check-out date")
     public void userSelectsWrongCheckOutDate() {
-        // CheckOut a tıkla
         dc.myClick(dc.checkOut);
         LocalDate today = LocalDate.now();
-        // Geriye doğru bir tarih gir
         LocalDate futureDate = today.plusDays(randomNumber-4);
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         String formattedDate = futureDate.format(formatter);
@@ -94,9 +83,8 @@ public class ChangeDates {
         dc.checkOut.sendKeys(formattedDate);
     }
 
-    @Then("New rooms not should come")
+    @Then("New rooms should not be displayed")
     public void newRoomsNotShouldCome() {
-        // Yeni odalar gelmemeli hata vermeli
         Assert.assertFalse(dc.newRooms.isDisplayed());
     }
 
