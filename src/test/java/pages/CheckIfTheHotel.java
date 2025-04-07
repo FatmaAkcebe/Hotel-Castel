@@ -21,5 +21,7 @@ public class CheckIfTheHotel extends ReusableMethods {
     @FindBy(xpath = "(//*[text()='Aktivitäten'])[3]")
     public WebElement aktivitätenButton;
 
+    @FindBy(xpath = "(//a[text()='Anfahrt'])[3]")
+    public WebElement anfahrt;
 
 }
