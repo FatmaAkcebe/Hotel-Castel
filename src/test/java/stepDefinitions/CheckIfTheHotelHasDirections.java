@@ -2,14 +2,15 @@ package stepDefinitions;
 
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import pages.CheckIfTheHotel;
+import pages.CheckIfTheHotel_POM;
 
 public class CheckIfTheHotelHasDirections {
 
-    CheckIfTheHotel ch = new CheckIfTheHotel();
+    CheckIfTheHotel_POM ch = new CheckIfTheHotel_POM();
 
     @When("The user Check the description of the hotel's location.")
     public void theUserCheckTheDescriptionOfTheHotelSLocation() {
+        ch.myClick(ch.anfahrt);
         ch.verifyContainsText(ch.text,"SO FINDEN SIE UNS");
     }
 
