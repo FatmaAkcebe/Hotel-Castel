@@ -5,6 +5,7 @@ Feature: Footer interactions on the website
     And The user scrolls down the page
     And The user accepts the cookie banner
 
+    @SmokeTest
   Scenario: Clicking on the footer menu items and verifying the expected results
     When The user clicks on the phone number button in the footer menu
     And The application selection screen should appear, listing apps that can make a call

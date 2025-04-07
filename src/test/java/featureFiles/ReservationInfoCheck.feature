@@ -1,5 +1,6 @@
 Feature: Reservation Info Check
 
+  @SmokeTest
   Scenario: Selected room details should be correctly displayed on the information filling screen
     Given The user is on the Reservation page
     When The user selects a check-in date

@@ -1,5 +1,6 @@
 Feature: Check the Accuracy of Hotel Information
 
+  @RegressionTest
   Scenario: Ensure that hotel information updates are displayed correctly
     Given The user is on to the Hotel Castle homepage
     When The user clicks the JETZT BUCHEN button
