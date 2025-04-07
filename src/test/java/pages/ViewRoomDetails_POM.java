@@ -26,7 +26,7 @@ public class ViewRoomDetails_POM extends ReusableMethods {
     public List<WebElement> erwachseneUndKinderText;
 
     @FindBy(partialLinkText = "Zusätzliche")
-    public WebElement zusätzlicheBtn;
+    public List<WebElement>zusätzlicheBtn;
 
     @FindBy(xpath = "//span[text()='2.']")
     public WebElement adultBtn;
