@@ -7,6 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import pages.ReservationInfoCheck_POM;
+import utilities.ConfigReader;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -36,6 +37,9 @@ public class ReservationInfoCheck {
         }
         roomTitle = element.titleText.getText().trim();
         price = element.priceText.getText().trim().replaceAll("[^0-9,]", "");
+
+        ConfigReader.saveToConfig("roomTitle", roomTitle);
+        ConfigReader.saveToConfig("price", price);
     }
 
     @And("The user proceeds to the information filling screen")

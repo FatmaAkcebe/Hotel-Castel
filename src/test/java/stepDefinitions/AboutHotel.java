@@ -12,10 +12,9 @@ import utilities.GWD;
 import utilities.ReusableMethods;
 
 public class AboutHotel {
-    ReusableMethods reusableMethods= new ReusableMethods();
     ChangeDates_POM dc = new ChangeDates_POM();
 
-    @When("Click on the About Us link from the menu")
+    @When("The users click on the About Us link from the menu")
     public void clickOnTheLinkFromTheMenu() {
         dc.myClick(dc.aboutUs);
     }
@@ -32,7 +31,7 @@ public class AboutHotel {
         Assert.assertTrue(dc.unserHotelDiv.getText().contains("Über uns"));
     }
 
-    @And("Click on the change buttons")
+    @And("The users click on the change buttons")
     public void clickOnTheChangeButtons() {
         JavascriptExecutor js=(JavascriptExecutor)GWD.getDriver();
         js.executeScript("window.scrollTo(0,500)");
