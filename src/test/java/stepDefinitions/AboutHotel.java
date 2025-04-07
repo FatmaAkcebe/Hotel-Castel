@@ -9,7 +9,6 @@ import org.testng.Assert;
 import pages.ChangeDates_POM;
 import utilities.ConfigReader;
 import utilities.GWD;
-import utilities.ReusableMethods;
 
 public class AboutHotel {
     ChangeDates_POM dc = new ChangeDates_POM();
