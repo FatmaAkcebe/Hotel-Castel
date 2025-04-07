@@ -1,5 +1,6 @@
 Feature: User should be able to view about its structure.
 
+  @RegressionTest @SmokeTest
   Scenario: Check the about page
     Given Navigate HotelCastle
     When The users click on the About Us link from the menu

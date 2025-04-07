@@ -18,7 +18,6 @@ public class AboutHotel {
         dc.myClick(dc.aboutUs);
     }
 
-
     @Given("Navigate HotelCastle")
     public void navigateHotelCastle() {
         GWD.getDriver().get(ConfigReader.getProperty("homepageURL"));
