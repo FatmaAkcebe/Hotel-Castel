@@ -1,5 +1,6 @@
 Feature:Verify Navigation Links in the Middle Section
 
+  @RegressionTest @SmokeTest
   Scenario: Check the navigation links in the middle section for proper redirection
     Given The user is on the homepage
     When The user scrolls down to the middle section

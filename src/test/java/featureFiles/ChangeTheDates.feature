@@ -1,5 +1,6 @@
 Feature: Change the dates
 
+  @RegressionTest @SmokeTest
   Scenario: Change The Dates
     Given Navigate HotelCastle
     When The users select the check-in and check-out dates

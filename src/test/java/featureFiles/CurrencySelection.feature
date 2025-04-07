@@ -1,5 +1,6 @@
 Feature:Currency Selection
 
+  @RegressionTest @SmokeTest
   Scenario: Ensure that the selected currency from the drop-down menu is automatically activated
     Given The user is on to the Hotel Castle homepage
     When The user clicks the JETZT BUCHEN button

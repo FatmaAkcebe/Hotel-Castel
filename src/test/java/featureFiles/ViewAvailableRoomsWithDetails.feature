@@ -1,5 +1,6 @@
 Feature: View Available Rooms with Details
 
+  @RegressionTest @SmokeTest
   Scenario: Selecting a room and specifying booking details
     Given The user is on the Reservation page
     When The user selects a check-in date

@@ -1,5 +1,6 @@
 Feature: Check if the hotel has directions
 
+  @RegressionTest @SmokeTest
   Scenario: Directions to the hotel
     Given Navigate HotelCastle
     When The user Check the description of the hotel's location.
