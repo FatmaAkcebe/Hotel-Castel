@@ -5,14 +5,14 @@ import io.cucumber.java.en.When;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
-import pages.VC_POM;
+import pages.ViewCustomerFeedback_POM;
 import utilities.ReusableMethods;
 import java.util.Arrays;
 import java.util.List;
 
 public class ViewCustomerFeedback extends ReusableMethods{
 
-    VC_POM vc = new VC_POM();
+    ViewCustomerFeedback_POM vc = new ViewCustomerFeedback_POM();
 
     @When("The user scrolls down to make the comments section visible")
     public void theUserScrollsDownToMakeTheCommentsSectionVisible() {

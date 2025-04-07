@@ -9,6 +9,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import pages.CheckAvailableRooms_POM;
+import utilities.ConfigReader;
 import utilities.GWD;
 
 import java.time.LocalDate;
@@ -17,6 +18,7 @@ import java.time.format.DateTimeFormatter;
 public class CheckAvailableRooms {
 
     CheckAvailableRooms_POM element = new CheckAvailableRooms_POM();
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
     private LocalDate checkInDate;
     private LocalDate checkOutDate;
 
@@ -30,9 +32,11 @@ public class CheckAvailableRooms {
 
     @When("The user selects a check-in date")
     public void theUserSelectsACheckInDate() {
+        LocalDate augustFirst = LocalDate.of(LocalDate.now().getYear(), 8, 1);
+
         element.myClick(element.searchStartDate);
         element.searchStartDate.sendKeys(Keys.CONTROL, "a", Keys.BACK_SPACE);
-        String checkIn = LocalDate.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+        String checkIn = augustFirst.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
         element.searchStartDate.sendKeys(checkIn);
         checkInDate = LocalDate.parse(checkIn, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
     }
@@ -67,6 +71,9 @@ public class CheckAvailableRooms {
                 element.searchEndDate.sendKeys(checkOutDate.format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
             }
         } while (invalidDate);
+
+        ConfigReader.saveToConfig("checkInDate", checkInDate.format(formatter));
+        ConfigReader.saveToConfig("checkOutDate", checkOutDate.format(formatter));
     }
 
     @And("Each room should display its type")
@@ -92,7 +99,8 @@ public class CheckAvailableRooms {
     }
 
     private String getDate(int daysAdd) {
-        LocalDate currentDate = LocalDate.now().plusDays(daysAdd);
+        LocalDate augustFirst = LocalDate.of(LocalDate.now().getYear(), 8, 1);
+        LocalDate currentDate = augustFirst.plusDays(daysAdd);
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         return currentDate.format(formatter);
     }
