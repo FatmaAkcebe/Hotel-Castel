@@ -6,11 +6,10 @@ import org.openqa.selenium.support.PageFactory;
 import utilities.GWD;
 import utilities.ReusableMethods;
 
-public class VC_POM extends ReusableMethods {
-    public VC_POM() {
+public class ViewCustomerFeedback_POM extends ReusableMethods {
+    public ViewCustomerFeedback_POM() {
         PageFactory.initElements(GWD.getDriver(), this);
     }
-
 
     @FindBy(css = "div[class*='testimonial-overlay']")
     public WebElement commentSection;

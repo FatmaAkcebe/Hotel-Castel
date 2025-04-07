@@ -6,15 +6,12 @@ import io.cucumber.java.en.When;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
-import pages.CR_POM;
+import pages.CheckAvailability_POM;
 import utilities.GWD;
-import utilities.ReusableMethods;
-
 import java.time.LocalDate;
-import java.util.Random;
 
 public class CheckAvailability  {
-    CR_POM element = new CR_POM();
+    CheckAvailability_POM element = new CheckAvailability_POM();
     JavascriptExecutor js = (JavascriptExecutor) GWD.getDriver();
 
     @When("The user scrolls down to make the date picker visible")
