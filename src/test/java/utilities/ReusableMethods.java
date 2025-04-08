@@ -98,7 +98,7 @@ public class ReusableMethods {
     public void verifyURL(String expectedUrl) {
         wait.until(ExpectedConditions.urlToBe(expectedUrl));
         String actualUrl = getCurrentURL();
-        Assert.assertEquals(actualUrl, expectedUrl, "Redirection failed!");
+        Assert.assertEquals(actualUrl, expectedUrl);
     }
 
     public static int[] generateCheckInOutDays(LocalDate today) {
@@ -116,7 +116,7 @@ public class ReusableMethods {
         return new int[]{checkInDay, checkOutDay};
     }
 
-    public void selectMenu(WebElement dropdownMenu, List<WebElement>list) {
+    public void selectMenu(WebElement dropdownMenu, List<WebElement> list) {
         Select select = new Select(dropdownMenu);
         wait.until(ExpectedConditions.elementToBeClickable(dropdownMenu));
         dropdownMenu.click();
