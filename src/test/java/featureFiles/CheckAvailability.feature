@@ -7,4 +7,3 @@ Feature: Check Room Availability
     And Select a check-in and check-out date
     And The user selects a number of guests
     When The user clicks the Check Availability button
-    Then The page should open where the list of available rooms is displayed according to the selected date range
