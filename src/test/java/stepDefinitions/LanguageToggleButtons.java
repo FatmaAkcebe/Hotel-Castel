@@ -7,7 +7,6 @@ import org.testng.Assert;
 import pages.JetztBuchenButton_POM;
 import utilities.GWD;
 
-
 public class LanguageToggleButtons {
     JetztBuchenButton_POM element = new JetztBuchenButton_POM();
 

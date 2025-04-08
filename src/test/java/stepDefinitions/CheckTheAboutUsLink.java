@@ -10,10 +10,10 @@ import pages.ChangeDates_POM;
 import utilities.ConfigReader;
 import utilities.GWD;
 
-public class AboutHotel {
+public class CheckTheAboutUsLink {
     ChangeDates_POM dc = new ChangeDates_POM();
 
-    @When("The users click on the About Us link from the menu")
+    @When("The user clicks on the About Us link from the menu")
     public void clickOnTheLinkFromTheMenu() {
         dc.myClick(dc.aboutUs);
     }
@@ -29,7 +29,7 @@ public class AboutHotel {
         Assert.assertTrue(dc.unserHotelDiv.getText().contains("Über uns"));
     }
 
-    @And("The users click on the change buttons")
+    @And("The user clicks on the change buttons")
     public void clickOnTheChangeButtons() {
         JavascriptExecutor js=(JavascriptExecutor)GWD.getDriver();
         js.executeScript("window.scrollTo(0,500)");

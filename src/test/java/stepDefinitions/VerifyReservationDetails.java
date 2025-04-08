@@ -19,7 +19,6 @@ public class VerifyReservationDetails {
     private final String expectedTotalPrice = ConfigReader.getProperty("price").replaceAll("[^0-9,]", "");
     private final String expectedGuestName = ConfigReader.getProperty("firstName") + " " + ConfigReader.getProperty("lastName");
 
-
     @When("The user reaches the reservation details page")
     public void theUserReachesTheReservationDetailsPage() {
         element.wait.until(ExpectedConditions.urlContains("confirmation"));

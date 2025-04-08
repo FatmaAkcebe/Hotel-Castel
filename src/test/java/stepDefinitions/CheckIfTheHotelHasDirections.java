@@ -8,14 +8,14 @@ public class CheckIfTheHotelHasDirections {
 
     CheckIfTheHotel_POM ch = new CheckIfTheHotel_POM();
 
-    @When("The user Check the description of the hotel's location.")
-    public void theUserCheckTheDescriptionOfTheHotelSLocation() {
+    @When("The user checks the description of the hotel's location.")
+    public void theUserChecksTheDescriptionOfTheHotelSLocation() {
         ch.myClick(ch.anfahrt);
         ch.verifyContainsText(ch.text,"SO FINDEN SIE UNS");
     }
 
-    @Then("The user Check the hotel's activity information")
-    public void theUserCheckTheHotelSActivityInformation() {
+    @Then("The user checks the hotel's activity information")
+    public void theUserChecksTheHotelSActivityInformation() {
         ch.myClick(ch.aktivitätenButton);
         ch.verifyContainsText(ch.Aktivitäten,"Aktivitäten");
     }

@@ -17,7 +17,7 @@ public class DisplayTheIntroduction {
     }
 
     @Then("The Willkommen Beim field should be visible in the introduction section")
-    public void theWillkommenBeimfieldShouldBeVisible() {
+    public void theWillkommenBeimFieldShouldBeVisible() {
         element.wait.until(ExpectedConditions.visibilityOf(element.castleHotelRastattTitle));
         Assert.assertTrue(element.willkommenBeimTitle.isDisplayed());
     }

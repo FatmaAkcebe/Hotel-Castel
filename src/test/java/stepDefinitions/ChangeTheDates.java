@@ -12,7 +12,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Set;
 
-public class ChangeDates {
+public class ChangeTheDates {
     ChangeDates_POM dc = new ChangeDates_POM();
 
     int randomNumber = (int)(Math.random() * (20 - 1 + 1)) + 1;
@@ -20,24 +20,24 @@ public class ChangeDates {
     LocalDate futureDate = today.plusDays(randomNumber);
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
-    @When("The users select the check-in and check-out dates")
+    @When("The user selects the check-in and check-out dates")
     public void selectCheckInAndCheckOutDates() {
         dc.myClick(dc.checkAvailability);
         Set<String> windowHandles = GWD.getDriver().getWindowHandles();
         for (String handle : windowHandles) {
-            GWD.getDriver().switchTo().window(handle); // Yeni sekmeye geçiş yap
+            GWD.getDriver().switchTo().window(handle);
         }
         dc.myClick(dc.checkIn);
     }
 
-    @And("The users select the check-in date")
+    @And("The user selects the check-in date")
     public void userChangesCheckInDate() {
         String formattedDate = futureDate.format(formatter);
         dc.checkIn.sendKeys(Keys.CONTROL, "a", Keys.BACK_SPACE);
         dc.checkIn.sendKeys(formattedDate);
     }
 
-    @And("The users select the check-out date")
+    @And("The user selects the check-out date")
     public void userChangesCheckOutDate() {
         dc.myClick(dc.checkOut);
         futureDate = today.plusDays(randomNumber+2);
@@ -49,7 +49,7 @@ public class ChangeDates {
     }
 
     @Then("New rooms should be displayed")
-    public void newRoomsShouldCome() {
+    public void newRoomsShouldAppear() {
         boolean invalidDate;
 
         do {
@@ -87,5 +87,4 @@ public class ChangeDates {
     public void newRoomsNotShouldCome() {
         Assert.assertFalse(dc.newRooms.isDisplayed());
     }
-
 }

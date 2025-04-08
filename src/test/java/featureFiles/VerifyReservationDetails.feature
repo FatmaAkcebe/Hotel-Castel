@@ -1,5 +1,6 @@
 Feature: Reservation Summary Details
 
+  @RegressionTest @SmokeTest
   Scenario: Verify reservation details in the summary page
     Given The user is on the Reservation page
     When The user selects a check-in date
