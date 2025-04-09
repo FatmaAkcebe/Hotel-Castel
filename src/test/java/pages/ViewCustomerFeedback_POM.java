@@ -11,7 +11,6 @@ public class ViewCustomerFeedback_POM extends ReusableMethods {
         PageFactory.initElements(GWD.getDriver(), this);
     }
 
-
     @FindBy(css = "div[class*='testimonial-overlay']")
     public WebElement commentSection;
 
