@@ -1,5 +1,6 @@
 Feature:Hotel Room Total Check
 
+  @RegressionTest @SmokeTest
   Scenario: Price Change Verification of the Hotel Room and Added Packages
     Given The user is on the Reservation page
     When The user selects a check-in date
