@@ -8,6 +8,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import pages.CheckAvailability_POM;
 import utilities.GWD;
+
 import java.time.LocalDate;
 
 public class CheckAvailability  {
@@ -59,5 +60,8 @@ public class CheckAvailability  {
         element.myClick(element.checkAvailabilityButton);
     }
 
+    @Then("The page should open where the list of available rooms is displayed according to the selected date range")
+    public void thePageShouldOpenWhereTheListOfAvailableRoomsIsDisplayedAccordingToTheSelectedDateRange() {
 
+    }
 }

@@ -8,9 +8,9 @@ import utilities.ReusableMethods;
 
 import java.util.List;
 
-public class HotelInformation extends ReusableMethods {
+public class HotelInformation_POM extends ReusableMethods {
 
-    public HotelInformation() {
+    public HotelInformation_POM() {
         PageFactory.initElements(GWD.getDriver(), this);
     }
 
@@ -28,13 +28,4 @@ public class HotelInformation extends ReusableMethods {
 
     @FindBy(css = "div[class='checkin-checkout-terms-block'] h5")
     public WebElement checkInCheckOutText;
-
-    @FindBy(xpath = "//p[@class='checkin']")
-    public WebElement timeControl;
-
-    @FindBy(xpath = "//h5[contains(text(),'Buchungsrichtlinien')]")
-    public WebElement buchungsrichtlinien;
-
-    @FindBy(css = "div[class='portlet-body'] div[class='cancellation_policy']")
-    public WebElement buchungsrichtlinienInhalt;
 }

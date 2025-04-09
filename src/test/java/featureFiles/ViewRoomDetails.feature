@@ -1,5 +1,6 @@
 Feature:View Room Details
 
+  @RegressionTest @SmokeTest
   Scenario:View the Room Details of the selected check-in and check-out dates
     Given The user is on the Reservation page
     When The user selects a check-in date

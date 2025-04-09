@@ -5,6 +5,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utilities.GWD;
 import utilities.ReusableMethods;
+
 import java.util.List;
 
 public class CheckAvailability_POM extends ReusableMethods {
@@ -20,6 +21,9 @@ public class CheckAvailability_POM extends ReusableMethods {
 
     @FindBy(css = "[class='ion-plus']")
     public WebElement guestIncreaseButton;
+
+    @FindBy(xpath = "//input[@id='number']")
+    public WebElement guestCountElement;
 
     @FindBy(xpath = "//*[text()='Check Availability']")
     public WebElement checkAvailabilityButton;
@@ -41,4 +45,7 @@ public class CheckAvailability_POM extends ReusableMethods {
                 break;
             }
         }
+
+
+
 }}

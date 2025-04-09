@@ -1,11 +1,16 @@
 Feature: Change the dates
 
+  @RegressionTest @SmokeTest
   Scenario: Change The Dates
     Given Navigate HotelCastle
-    When Click on the date picker
-    Then Select a check-in date
+    When The user selects the check-in and check-out dates
+    And The user selects the check-in date
+    And The user selects the check-out date
+    Then New rooms should be displayed
 
-    Scenario: Change The Dates Negative
-      Given Navigate HotelCastle
-      When Click on the date picker
-      Then Try to select a check-out date that is before the check-in date
+  Scenario: Change The Dates negative
+    Given Navigate HotelCastle
+    When The user selects the check-in and check-out dates
+    And The user selects the check-in date
+    And User selects wrong check-out date
+    Then New rooms should not be displayed

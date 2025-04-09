@@ -6,18 +6,18 @@ import io.cucumber.java.en.When;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
-import pages.DialogContent;
+import pages.ViewAvailableRoomsWithDetails_POM;
 
 public class ViewAvailableRoomsWithDetails {
 
-    DialogContent dc = new DialogContent();
+    ViewAvailableRoomsWithDetails_POM element = new ViewAvailableRoomsWithDetails_POM();
 
     @When("The user specifies the number of adults for the booking")
     public void theUserSpecifiesTheNumberOfAdultsForTheBooking() {
-        dc.wait.until(ExpectedConditions.visibilityOf(dc.adultDropdownButton));
-        dc.myClick(dc.adultDropdownButton);
+        element.wait.until(ExpectedConditions.visibilityOf(element.adultDropdownButton));
+        element.myClick(element.adultDropdownButton);
 
-        for (WebElement adult : dc.adultSelection) {
+        for (WebElement adult : element.adultSelection) {
             String index = adult.getAttribute("data-original-index");
             if (index.equals("1")) {
                 adult.click();
@@ -28,10 +28,10 @@ public class ViewAvailableRoomsWithDetails {
 
     @And("The user specifies the number of children if allowed for the selected room type")
     public void theUserSpecifiesTheNumberOfChildrenIfAllowedForTheSelectedRoomType() {
-        dc.wait.until(ExpectedConditions.visibilityOf(dc.childrenDropdownButton));
-        dc.myClick(dc.childrenDropdownButton);
+        element.wait.until(ExpectedConditions.visibilityOf(element.childrenDropdownButton));
+        element.myClick(element.childrenDropdownButton);
 
-        for (WebElement child : dc.childrenSelection) {
+        for (WebElement child : element.childrenSelection) {
             String index = child.getAttribute("data-original-index");
             if (index.equals("1")) {
                 child.click();
@@ -42,10 +42,10 @@ public class ViewAvailableRoomsWithDetails {
 
     @And("The user specifies the number of rooms to book")
     public void theUserSpecifiesTheNumberOfRoomsToBook() {
-        dc.wait.until(ExpectedConditions.visibilityOf(dc.roomDropdownButton));
-        dc.myClick(dc.roomDropdownButton);
+        element.wait.until(ExpectedConditions.visibilityOf(element.roomDropdownButton));
+        element.myClick(element.roomDropdownButton);
 
-        for (WebElement room : dc.roomSelection) {
+        for (WebElement room : element.roomSelection) {
             String index = room.getAttribute("data-original-index");
             if (index.equals("1")) {
                 room.click();
@@ -56,6 +56,6 @@ public class ViewAvailableRoomsWithDetails {
 
     @Then("The system should update the total price based on the number of rooms and guests selected")
     public void theSystemShouldUpdateTheTotalPriceBasedOnTheNumberOfRoomsAndGuestsSelected() {
-        Assert.assertTrue(dc.totalPrice.isDisplayed());
+        Assert.assertTrue(element.totalPrice.isDisplayed());
     }
 }

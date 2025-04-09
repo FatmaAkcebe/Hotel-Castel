@@ -4,9 +4,9 @@ import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(
-        tags = "@RegressionTest or @SmokeTest",
+        tags = "@RegressionTest",
         features = {"src/test/java/featureFiles"},
-        glue = {"stepDefinitions"}
+        glue = {"stepDefinitions", "hooks"}
 )
 public class RegressionTest extends AbstractTestNGCucumberTests {
 }

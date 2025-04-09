@@ -3,6 +3,7 @@ Feature: Header Menu Control
   Background:
     Given The user navigates to the Hotel Castle website
 
+    @SmokeTest
   Scenario: Clicking on the header menu items and verifying the expected results
     When The user clicks on the Hotel Logo button in the header menu
     Then The user should be redirected to the Start page

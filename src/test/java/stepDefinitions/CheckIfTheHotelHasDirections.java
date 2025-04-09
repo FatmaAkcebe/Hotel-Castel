@@ -1,22 +1,22 @@
 package stepDefinitions;
 
-import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import pages.DialogContent;
-import utilities.GWD;
+import pages.CheckIfTheHotel_POM;
 
 public class CheckIfTheHotelHasDirections {
 
-    DialogContent dc = new DialogContent();
+    CheckIfTheHotel_POM ch = new CheckIfTheHotel_POM();
 
-    @Given("Navigate to hootelCastle")
-    public void navigateToHootelCastle() {
-        GWD.getDriver().get("https://hotel-castle-rastatt.de/");
-        dc.myClick(dc.almanca);
-        dc.myClick(dc.anfahrt);
+    @When("The user checks the description of the hotel's location.")
+    public void theUserChecksTheDescriptionOfTheHotelSLocation() {
+        ch.myClick(ch.anfahrt);
+        ch.verifyContainsText(ch.text,"SO FINDEN SIE UNS");
     }
 
-    @When("Check the description of the hotel's location.")
-    public void checkTheDescriptionOfTheHotelSLocation() {
+    @Then("The user checks the hotel's activity information")
+    public void theUserChecksTheHotelSActivityInformation() {
+        ch.myClick(ch.aktivitätenButton);
+        ch.verifyContainsText(ch.Aktivitäten,"Aktivitäten");
     }
 }

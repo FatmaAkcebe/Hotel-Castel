@@ -1,5 +1,6 @@
 Feature: View Available Rooms with Details
 
+  @RegressionTest @SmokeTest
   Scenario: Selecting a room and specifying booking details
     Given The user is on the Reservation page
     When The user selects a check-in date
@@ -9,4 +10,3 @@ Feature: View Available Rooms with Details
     And The user specifies the number of children if allowed for the selected room type
     And The user specifies the number of rooms to book
     Then The system should update the total price based on the number of rooms and guests selected
-    

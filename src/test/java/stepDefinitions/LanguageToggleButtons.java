@@ -4,12 +4,11 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.testng.Assert;
-import pages.DialogContent;
+import pages.JetztBuchenButton_POM;
 import utilities.GWD;
 
-
 public class LanguageToggleButtons {
-    DialogContent element = new DialogContent();
+    JetztBuchenButton_POM element = new JetztBuchenButton_POM();
 
     @When("The user clicks the language button Deutsch")
     public void theUserClicksTheLanguageButtonDeutsch() {

@@ -1,5 +1,6 @@
 Feature: Display the Introduction Section on the Homepage
 
+  @RegressionTest
   Scenario: Verify the introduction section is displayed correctly
     Given The user is on the homepage
     When The user scrolls down to the introduction section

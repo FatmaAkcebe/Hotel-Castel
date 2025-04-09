@@ -1,5 +1,6 @@
 Feature: Language Toggle Buttons
 
+  @RegressionTest @SmokeTest
   Scenario: User switches the website language
     Given The user is on the homepage
     When The user clicks the language button Deutsch
