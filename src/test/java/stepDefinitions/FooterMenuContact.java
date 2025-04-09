@@ -1,6 +1,9 @@
 package stepDefinitions;
 
 import io.cucumber.java.en.*;
+import org.openqa.selenium.ElementNotInteractableException;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import pages.FooterMenuContact_POM;
@@ -16,7 +19,11 @@ public class FooterMenuContact {
 
     @And("The user accepts the cookie banner")
     public void theUserAcceptsTheCookieBanner() {
-        fm.myClick(fm.okButton);
+            try {
+                fm.okButton.click();
+            } catch (TimeoutException | NoSuchElementException | ElementNotInteractableException e) {
+                System.out.println("e");
+            }
     }
 
     @When("The user clicks on the phone number button in the footer menu")

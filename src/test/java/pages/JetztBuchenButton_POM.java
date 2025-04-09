@@ -20,4 +20,7 @@ public class JetztBuchenButton_POM extends ReusableMethods {
 
     @FindBy(xpath = "(//a[@class='wpml-ls-link'])[6]")
     public WebElement englischBtn;
+
+    @FindBy(xpath = "(//a[text()='HOME'])[3]")
+    public WebElement HomeBtn;
 }
