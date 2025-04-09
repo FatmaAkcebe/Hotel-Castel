@@ -59,9 +59,4 @@ public class CheckAvailability  {
         element.wait.until(ExpectedConditions.visibilityOf(element.checkAvailabilityButton));
         element.myClick(element.checkAvailabilityButton);
     }
-
-    @Then("The page should open where the list of available rooms is displayed according to the selected date range")
-    public void thePageShouldOpenWhereTheListOfAvailableRoomsIsDisplayedAccordingToTheSelectedDateRange() {
-
-    }
 }

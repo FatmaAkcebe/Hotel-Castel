@@ -45,7 +45,4 @@ public class CheckAvailability_POM extends ReusableMethods {
                 break;
             }
         }
-
-
-
 }}
