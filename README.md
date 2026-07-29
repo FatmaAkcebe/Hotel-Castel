@@ -10,7 +10,7 @@ Bu depo (repository), **Hotel Castle Rastatt & Luna Blanco** web platformu için
 
 * **Sektör:** Otelcilik / Web Platformu
 * **Metodoloji:** Agile / BDD (Behavior-Driven Development)
-* **Test Türleri:** Fonksiyonel, BDD Otomasyon, Güvenlik ve Performans Testleri
+* **Test Türleri:** Fonksiyonel, BDD Otomasyon, Güvenlik 
 * **Proje Yönetimi & Takip:** Azure DevOps
 * **Sürüm Kontrolü:** Git & GitHub
 
