@@ -1,46 +1,46 @@
 # 🏨 Hotel Castle & Luna Blanco - Web Test Automation Framework
 
-Bu depo (repository), **Hotel Castle Rastatt & Luna Blanco** web platformu için yürütülen yazılım kalite güvence (QA), manuel test ve otomasyon süreçlerini içermektedir. 
+This repository contains the software quality assurance (QA), manual testing, and test automation processes developed for the **Hotel Castle Rastatt & Luna Blanco** web platform. 
 
-Çalışma kapsamında **Behavior-Driven Development (BDD)** yaklaşımı benimsenerek web platformunun işlevsellik, güvenlik ve performans testleri gerçekleştirilmiş; iş gereksinimleriyle uyumlu test senaryoları kurgulanmıştır.
-
----
-
-## 📌 Proje Özeti
-
-* **Sektör:** Otelcilik / Web Platformu
-* **Metodoloji:** Agile / BDD (Behavior-Driven Development)
-* **Test Türleri:** Fonksiyonel, BDD Otomasyon, Güvenlik 
-* **Proje Yönetimi & Takip:** Azure DevOps
-* **Sürüm Kontrolü:** Git & GitHub
+Applying the **Behavior-Driven Development (BDD)** approach, functional, security, and performance tests were executed to validate the platform, with test scenarios structured to align directly with business requirements.
 
 ---
 
-## 🛠️ Kullanılan Teknolojiler ve Araçlar
+## 📌 Project Overview
 
-* **Test Otomasyon Framework:** Cucumber BDD
-* **Web Otomasyonu:** Selenium WebDriver
-* **Programlama Dili:** Java
-* **Proje & Bağımlılık Yönetimi:** Apache Maven
-* **Test Yönetimi & Hata Takipi:** Azure DevOps
-* **Sürüm Kontrolü:** Git / GitHub
-
----
-
-## 📋 Kapsam ve Süreç Detayları
-
-- 🔹 **Kalite Güvence ve Test Execution:** Web platformunun kararlılığını sağlamak üzere manuel ve otomasyon test süreçleri yürütülmüştür.
-- 🔹 **BDD Otomasyon Framework'ü:** **Cucumber** kullanılarak feature dosyaları ve step definition yapıları kurgulanmış, otomasyon senaryoları geliştirilip çalıştırılmıştır.
-- 🔹 **ALM & Defect Lifecycle:** **Azure DevOps** platformu üzerinden test senaryoları (test cases), test çalıştırmaları ve hata (bug) takipleri uçtan uca yönetilmiştir.
-- 🔹 **İş Gereksinimleri ve User Stories:** Kullanıcı hikâyeleri (User Stories) oluşturularak test süreçlerinin iş hedefleri ve müşteri gereksinimleriyle tam uyumu sağlanmıştır.
-- 🔹 **Güvenlik ve Performans Testleri:** Platformun genel sistem davranışı, güvenlik standartları ve performans kriterleri doğrulanmıştır.
-- 🔹 **Kod İncelemesi ve Sürüm Yönetimi:** **GitHub** repository'si üzerinde kod incelemelerine (Code Review) katılım sağlanmış, test script'leri modüler biçimde yönetilmiştir.
+* **Domain:** Hospitality / Web Application
+* **Methodology:** Agile / BDD (Behavior-Driven Development)
+* **Test Types:** Functional, BDD Automation, Security & Performance
+* **Project Management & Tracking:** Azure DevOps
+* **Version Control:** Git & GitHub
 
 ---
 
-## 🚀 Projeyi Çalıştırma
+## 🛠️ Tech Stack & Key Tools
 
-Test senaryolarını yerel ortamda çalıştırmak için depoyu klonlayabilir ve projenizi IntelliJ IDEA veya Eclipse üzerinde açarak Cucumber runner sınıfı üzerinden testleri tetikleyebilirsiniz:
+* **Test Automation Framework:** Cucumber BDD
+* **Web Automation:** Selenium WebDriver
+* **Programming Language:** Java
+* **Build & Dependency Management:** Apache Maven
+* **Test Management & Defect Tracking:** Azure DevOps
+* **Version Control:** Git / GitHub
+
+---
+
+## 📋 Scope & Key Responsibilities
+
+- 🔹 **Quality Assurance & Execution:** Manual and automated testing executed across critical user flows to ensure platform stability.
+- 🔹 **BDD Automation Framework:** Feature files and step definition structures created using **Cucumber** to develop and run test automation scripts.
+- 🔹 **ALM & Defect Lifecycle:** End-to-end management of test cases, test executions, and bug tracking handled via **Azure DevOps**.
+- 🔹 **Business Requirements & User Stories:** User Stories created to maintain complete alignment between QA processes and client goals.
+- 🔹 **Non-Functional Testing:** Overall system behavior verified against core security standards and performance criteria.
+- 🔹 **Code Review & Version Control:** Active participation in code reviews on GitHub, ensuring modular management of automation scripts.
+
+---
+
+## 🚀 Execution Guide
+
+To run the test scenarios in a local environment, clone the repository and execute the suite via the Cucumber runner class in your preferred IDE (IntelliJ IDEA or Eclipse):
 
 ```bash
 git clone [https://github.com/FatmaAkcebe/Hotel-Castel.git](https://github.com/FatmaAkcebe/Hotel-Castel.git)
